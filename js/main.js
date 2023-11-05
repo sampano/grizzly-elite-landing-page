@@ -16,7 +16,7 @@ $(document).ready(function () {
     // Change the background image path of .hero-container
     $(".hero-container").css(
       "background-image",
-      "url('../media/img/background_03.png')"
+      "url('./media/img/background_03.png')"
     );
   });
   $("button.btn-submit").click(function (e) {
@@ -123,7 +123,7 @@ $(".btn-prev").on("click", function () {
     // Change the background image path of .hero-container
     $(".hero-container").css(
       "background-image",
-      "url('../media/img/background_04.png')"
+      "url('./media/img/background_04.png')"
     );
   }
 

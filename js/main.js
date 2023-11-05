@@ -1,62 +1,135 @@
-$(".accordion-content").css("display", "none");
-
 $(document).ready(function () {
-  $(".testimonial-container").slick({
-    infinite: true,
-    slidesToShow: 3,
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
+  $("#get-started").click(function () {
+    $(".step-0").addClass("valid");
 
-  $(".accordion-title").click(function () {
-    $(".accordion-title").not(this).removeClass("open");
-    $(".accordion-title").not(this).next().slideUp(300);
-    $(this).toggleClass("open");
-    $(this).next().slideToggle(300);
-  });
+    // Fade out the "nav-logo" first
+    $(".nav-logo").fadeOut(400, function () {
+      // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
+      $(".previous-button, .nav-logo").fadeIn(400);
+    });
 
-  $(".cover h2, .cover a").hide();
+    $(".container.get-started").fadeOut(400, function () {
+      $(".get-name").fadeIn(400);
+      $(".next-button-container").fadeIn(400);
+    });
 
-  $(".cover h2, .cover a").fadeIn(1000);
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 0) {
-      $(".cover h2, .cover a").fadeOut(500);
-    } else {
-      $(".cover h2, .cover a").fadeIn(500);
-    }
+    // Change the background image path of .hero-container
+    $(".hero-container").css(
+      "background-image",
+      "url('../media/img/background_03.png')"
+    );
   });
 });
+$(".btn-next").on("click", function () {
+  var currentStepNum = $("#checkout-progress").data("current-step");
+  var nextStepNum = currentStepNum + 1;
+  var currentStep = $(".step.step-" + currentStepNum);
+  var nextStep = $(".step.step-" + nextStepNum);
+  var progressBar = $("#checkout-progress");
+  var currentSection = $("#section" + currentStepNum);
+  var nextSection = $("#section" + nextStepNum);
 
-var targetDate = new Date(2023, 10, 1, 11, 0, 0);
+  $(".btn-prev").removeClass("disabled");
 
-function updateCountdown() {
-  var now = new Date();
-  var timeDifference = targetDate - now;
+  currentSection.fadeOut(400, function () {
+    nextSection.fadeIn(400);
+  });
 
-  var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  var hours = Math.floor(
-    (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  $(".btn-next").fadeOut(400, function () {
+    if (nextStepNum == 13) {
+      $(this).fadeOut(400, function () {
+        $(".btn-submit").fadeIn(400);
+        $(".btn-next").fadeOut(400);
+      });
+    } else {
+      $(".btn-next").fadeIn(400);
+    }
+  });
 
-  var formattedCountdown =
-    days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
+  // if (nextStepNum == 13) {
+  //   $(this).fadeOut(400, function () {
+  //     $(".btn-submit").fadeIn(400);
+  //     $(".btn-next").fadeOut(400);
+  //   });
+  // }
 
-  $(".countdown").text(formattedCountdown);
-}
+  /*if(nextStepNum == 5){
+		$(this).addClass('disabled');
+	}*/
 
-// Call the function initially
-updateCountdown();
+  $(".checkout-progress")
+    .removeClass(".step-" + currentStepNum)
+    .addClass(".step-" + (currentStepNum + 1));
 
-// Update the countdown every second
-setInterval(updateCountdown, 1000);
+  currentStep.removeClass("active").addClass("valid");
+  currentStep.find("span").addClass("opaque");
+  currentStep.find(".fa.fa-check").removeClass("opaque");
+
+  nextStep.addClass("active");
+  progressBar
+    .removeAttr("class")
+    .addClass("step-" + nextStepNum)
+    .data("current-step", nextStepNum);
+});
+
+// $(".btn-submit").on("click", function () {
+//   $(".btn-submit").toggle("disabled");
+//   $(".btn-prev").toggle();
+//   var currentStepNum = $("#checkout-progress").data("current-step");
+//   var currentStep = $(".step.step-" + currentStepNum);
+//   currentStep.removeClass("active").addClass("valid");
+//   currentStep.find(".fa.fa-check").removeClass("opaque");
+// });
+
+$(".btn-prev").on("click", function () {
+  var currentStepNum = $("#checkout-progress").data("current-step");
+  var prevStepNum = currentStepNum - 1;
+  var currentStep = $(".step.step-" + currentStepNum);
+  var prevStep = $(".step.step-" + prevStepNum);
+  var progressBar = $("#checkout-progress");
+  $(".btn-next").removeClass("disabled");
+  $("#section" + currentStepNum).toggle();
+  $("#section" + prevStepNum).toggle();
+  console.log(currentStepNum);
+  if (currentStepNum === 13) {
+    $(".btn-submit").toggle();
+    $(".btn-next").toggle();
+  }
+  if (currentStepNum === 1) {
+    return false;
+  }
+
+  if (prevStepNum === 1) {
+    $(this).addClass("disabled");
+    $(".previous-button").fadeOut(400, function () {
+      // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
+
+      $(".nav-logo").fadeIn(400);
+    });
+
+    $(".container.get-started").fadeIn(400, function () {
+      $(".get-name").fadeOut(400);
+      $(".next-button-container").fadeOut(400);
+    });
+
+    // Change the background image path of .hero-container
+    $(".hero-container").css(
+      "background-image",
+      "url('../media/img/background_04.png')"
+    );
+  }
+
+  $(".checkout-progress")
+    .removeClass(".step-" + currentStepNum)
+    .addClass(".step-" + prevStepNum);
+
+  currentStep.removeClass("active");
+  prevStep.find("span").removeClass("opaque");
+  prevStep.find(".fa.fa-check").addClass("opaque");
+
+  prevStep.addClass("active").removeClass("valid");
+  progressBar
+    .removeAttr("class")
+    .addClass("step-" + prevStepNum)
+    .data("current-step", prevStepNum);
+});

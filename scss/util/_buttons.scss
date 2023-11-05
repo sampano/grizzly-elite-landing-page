@@ -17,6 +17,7 @@
 .button_red {
   background-color: var(--bg-color-secondary);
 }
+
 .button_cc {
   display: inline-block;
   min-width: 163px;
@@ -51,4 +52,32 @@
   .button_cc-settings {
     display: none;
   }
+}
+
+.btn-prev {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-prev:active {
+  border: 1px solid #fff;
+}
+
+.btn-prev:hover {
+  border: 1px solid #fff;
+}
+
+.button-gradient {
+  background-image: linear-gradient(
+    to right,
+    #ee3524,
+    #f04b21,
+    #f25c1f,
+    #f36c1e,
+    #f47b20
+  );
 }

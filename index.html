@@ -29,7 +29,13 @@
   <body>
     <header class="bg-color_primary pt-100">
       <nav class="nav">
-        <div class="m-pt-20">
+        <div class="m-pt-20 previous-button" style="display: none">
+          <div class="btn btn-prev disabled">
+            <img src="../media/icons/previous_icon.png" alt="previous icon" />
+          </div>
+        </div>
+
+        <div class="m-pt-20 nav-logo">
           <a href="#">
             <img
               src="./media/logo/Grizzly Smaller Logo.png"
@@ -47,7 +53,52 @@
     <main>
       <section class="hero bg-color_primary pb-100">
         <div class="hero-container">
-          <img
+          <div class="container">
+            <div class="step-1" id="checkout-progress" data-current-step="1">
+              <div class="progress-bar">
+                <div class="step step-0">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-1">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-2">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-3">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-4">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-5">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-6">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-7">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-8">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-9">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-10">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-11">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+                <div class="step step-12">
+                  <div class="fa fa-check opaque"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <img
             class="bg-img_top"
             src="../media/img/background_02.png"
             alt="orange dotted background image"
@@ -56,7 +107,7 @@
             class="bg-img_bottom width"
             src="../media/img/background_01.png"
             alt="orange dotted background image"
-          />
+          /> -->
           <div class="container get-started">
             <div class="font-color_white text-align_center pl-120 pr-120">
               <h3 class="font-weight_400 pt-50">For Students in</h3>
@@ -75,7 +126,12 @@
                 However, we only accept those who are willing to take obsessive
                 action. If that’s you, then Let’s Do It!
               </p>
-              <a href="#" class="button_primary">GET STARTED</a>
+              <a
+                href="#"
+                class="button_primary button-gradient"
+                id="get-started"
+                >GET STARTED</a
+              >
               <div class="rating pb-80 pt-30">
                 <img
                   src="../media/icons/five_star.png"
@@ -87,7 +143,7 @@
           </div>
 
           <form>
-            <div class="get-name">
+            <div class="get-name section1" id="section1" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30">
@@ -100,12 +156,12 @@
                     type="text"
                     placeholder="Enter Your Name"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-email">
+            <div class="get-email section2" id="section2" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30 pl-50 pr-50">
@@ -117,12 +173,16 @@
                     type="email"
                     placeholder="Enter Your E-mail"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-birthday">
+            <div
+              class="get-birthday section3"
+              id="section3"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30 pl-50 pr-50">
@@ -142,12 +202,12 @@
                       <option value="">2022</option>
                     </select>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-uni">
+            <div class="get-uni section4" id="section4" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30 pl-80 pr-80">
@@ -159,12 +219,12 @@
                     type="email"
                     placeholder="Enter Your Dream University Name"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-ecs">
+            <div class="get-ecs section5" id="section5" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30 pl-80 pr-80">
@@ -191,12 +251,12 @@
                       <option value="">2022</option>
                     </select>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-ecs">
+            <div class="get-ecs section6" id="section6" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-40 pr-40">
                   <h1 class="pb-30">
@@ -209,12 +269,16 @@
                     type="email"
                     placeholder="Your Opinion"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-grades">
+            <div
+              class="get-grades section7"
+              id="section7"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-40 pr-40">
                   <h1 class="pb-30">
@@ -227,12 +291,16 @@
                     type="file"
                     placeholder="No Choose File"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-answer">
+            <div
+              class="get-answer section7"
+              id="section7"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h1 class="pb-30 pl-100 pr-100">
@@ -243,12 +311,16 @@
                     type="text"
                     placeholder="Answer"
                   />
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-number">
+            <div
+              class="get-number section8"
+              id="section8"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-40 pr-40">
                   <h4 class="font-weight_400 mb-20">
@@ -392,12 +464,12 @@
                       >
                     </div>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-brand">
+            <div class="get-brand section9" id="section9" style="display: none">
               <div class="container">
                 <div class="font-color_white text-align_center pl-40 pr-40">
                   <h1 class="pb-30">
@@ -469,12 +541,16 @@
                       <p class="pt-20">Reddit</p>
                     </div>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-interview">
+            <div
+              class="get-interview section10"
+              id="section10"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h4 class="font-weight_400 mb-20">
@@ -527,12 +603,16 @@
                       >
                     </div>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-payment">
+            <div
+              class="get-payment section11"
+              id="section11"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-80 pr-80">
                   <h4 class="font-weight_400 mb-20">
@@ -580,12 +660,16 @@
                       >
                     </div>
                   </div>
-                  <a href="#" class="button_primary">Next</a>
+                  <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
-            <div class="get-details">
+            <div
+              class="get-details section12"
+              id="section12"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center">
                   <h1 class="pb-30">
@@ -623,13 +707,35 @@
                       placeholder="First name"
                     />
                   </div>
-                  <a href="#" class="button_primary">Submit</a>
+                  <!-- <a href="#" class="button_primary">Submit</a> -->
                 </div>
               </div>
             </div>
+            <div
+              class="container next-button-container text-align_center"
+              style="display: none"
+            >
+              <a href="#" class="btn btn-next button_primary button-gradient"
+                >Next</a
+              >
+            </div>
+            <button
+              type="submit"
+              class="btn btn-submit button_primary button-gradient"
+              style="display: none"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </section>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

@@ -19,6 +19,14 @@ $(document).ready(function () {
       "url('../media/img/background_03.png')"
     );
   });
+  $("button.btn-submit").click(function (e) {
+    e.preventDefault();
+    $(".get-details").fadeOut(400);
+    $(".btn-submit").fadeOut(400);
+    $(".get-verification").fadeIn(800);
+    // Redirect to a specific URL
+    window.location.href = "/#verification"; // Replace with your desired URL
+  });
 });
 $(".btn-next").on("click", function () {
   var currentStepNum = $("#checkout-progress").data("current-step");

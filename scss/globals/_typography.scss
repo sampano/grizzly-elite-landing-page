@@ -84,3 +84,29 @@ input::placeholder {
 .text-decoration_underline {
   text-decoration: underline;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+option {
+  background-color: #fff;
+  color: #000;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #ee3524,
+    #f04b21,
+    #f25c1f,
+    #f36c1e,
+    #f47b20
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}

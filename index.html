@@ -45,7 +45,7 @@
         </div>
         <div class="m-pt-20 m-pb-20 timer">
           <p class="font-size_18px font-color_white font-weight_600">
-            00:14:39
+            00:<span class="gradient-text">14:39</span>
           </p>
         </div>
       </nav>
@@ -194,6 +194,8 @@
                       class="hero-input mb-50 get-birthday_input"
                       type="text"
                       placeholder="Birthday"
+                      onfocus="(this.type='date')"
+                      onblur="(this.type='text')"
                     />
                     <select class="hero-select get-birthday_select">
                       <option value>Graduation Year-</option>
@@ -280,25 +282,39 @@
               style="display: none"
             >
               <div class="container">
-                <div class="font-color_white text-align_center pl-40 pr-40">
+                <div
+                  class="font-color_white text-align_center pl-40 pr-40 pb-50"
+                >
                   <h1 class="pb-30">
                     We only accept the best of the best. So, please upload a
                     picture of your last 7 (or of your last 96%+) in school.
                     This can also be a screenshot of your grades online/canvas.
                   </h1>
                   <input
-                    class="display_block hero-input mb-50"
+                    class="display_block hero-input file-images_input"
                     type="file"
                     placeholder="No Choose File"
+                    id="file-images"
+                    name="file-images"
                   />
+                  <label for="file-images" class="file-images_label"
+                    ><div class="file-images_label-container">
+                      <p class="width_20 mb-0">No Choose File</p>
+                      <div class="upload-file">
+                        <p class="width_20 mb-0 font-size_14px display_inline">
+                          Upload File
+                        </p>
+                      </div>
+                    </div></label
+                  >
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
               </div>
             </div>
 
             <div
-              class="get-answer section7"
-              id="section7"
+              class="get-answer section8"
+              id="section8"
               style="display: none"
             >
               <div class="container">
@@ -317,8 +333,8 @@
             </div>
 
             <div
-              class="get-number section8"
-              id="section8"
+              class="get-number section9"
+              id="section9"
               style="display: none"
             >
               <div class="container">
@@ -469,7 +485,11 @@
               </div>
             </div>
 
-            <div class="get-brand section9" id="section9" style="display: none">
+            <div
+              class="get-brand section10"
+              id="section10"
+              style="display: none"
+            >
               <div class="container">
                 <div class="font-color_white text-align_center pl-40 pr-40">
                   <h1 class="pb-30">
@@ -547,8 +567,8 @@
             </div>
 
             <div
-              class="get-interview section10"
-              id="section10"
+              class="get-interview section11"
+              id="section11"
               style="display: none"
             >
               <div class="container">
@@ -569,6 +589,7 @@
                         type="radio"
                         id="getInterviewYes"
                         name="get-interview"
+                        checked
                       />
                       <label for="getInterviewYes" class="get-interview_label"
                         ><div class="get-interview_img">
@@ -609,8 +630,8 @@
             </div>
 
             <div
-              class="get-payment section11"
-              id="section11"
+              class="get-payment section12"
+              id="section12"
               style="display: none"
             >
               <div class="container">
@@ -628,6 +649,7 @@
                         type="radio"
                         id="getPaymentYes"
                         name="get-payment"
+                        checked
                       />
                       <label for="getPaymentYes" class="get-payment_label"
                         ><div class="get-payment_img">
@@ -666,8 +688,8 @@
             </div>
 
             <div
-              class="get-details section12"
-              id="section12"
+              class="get-details section13"
+              id="section13"
               style="display: none"
             >
               <div class="container">
@@ -716,8 +738,13 @@
               style="display: none"
             >
               <a href="#" class="btn btn-next button_primary button-gradient"
-                >Next</a
-              >
+                >Next
+                <img
+                  class="arrow-icon"
+                  src="../media/img/arrow_icon.png"
+                  alt=""
+                />
+              </a>
             </div>
             <button
               type="submit"
@@ -727,6 +754,37 @@
               Submit
             </button>
           </form>
+          <div
+            class="get-verification pt-80"
+            id="#verification"
+            style="display: none"
+          >
+            <div class="container">
+              <div
+                class="get-verification_container font-color_white text-align_center pl-100 pr-100"
+              >
+                <div class="spin">
+                  <p class="font-size_32px font-weight_700">71%</p>
+                </div>
+
+                <h1 class="pt-80 pb-30 pl-150 pr-150">
+                  Please be patient as we verify your answers.
+                </h1>
+                <div class="get-verification_img-container">
+                  <img
+                    class="pl-20 pr-20"
+                    src="../media/icons/google-fivestars_icon.png"
+                    alt="google rating"
+                  />
+                  <img
+                    class="pl-20 pr-20"
+                    src="../media/icons/linkedin-fivestars_icon.png"
+                    alt="linkedin rating"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

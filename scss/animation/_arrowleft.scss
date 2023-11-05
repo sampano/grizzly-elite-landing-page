@@ -1,0 +1,18 @@
+.arrow-icon {
+  animation: moveRight 1.5s linear infinite;
+  width: 45px;
+  height: 45px;
+  transform-origin: left center;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(50%) scaleX(0.5);
+  }
+  100% {
+    transform: translateX(100%) scaleX(1);
+  }
+}

@@ -24,8 +24,17 @@ $(document).ready(function () {
     $(".get-details").fadeOut(400);
     $(".btn-submit").fadeOut(400);
     $(".get-verification").fadeIn(800);
+    $(".nav-logo").fadeOut(400, function () {
+      // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
+      $(".nav-logo").fadeIn(400);
+      $(".previous-button").css("display", "none");
+      $(".timer").css("display", "none");
+      $(".nav").css("justify-content", "center");
+      $("#checkout-progress").css("display", "none");
+    });
+
     // Redirect to a specific URL
-    window.location.href = "/#verification"; // Replace with your desired URL
+    //window.location.href = "/#verification"; // Replace with your desired URL
   });
 });
 $(".btn-next").on("click", function () {

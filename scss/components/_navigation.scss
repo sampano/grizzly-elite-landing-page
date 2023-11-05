@@ -1,0 +1,22 @@
+.nav {
+  max-width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  min-height: 100px;
+  p {
+    margin-bottom: 0;
+  }
+
+  .timer {
+    border-top: 1px solid var(--bg-color-secondary);
+    border-bottom: 1px solid var(--bg-color-secondary);
+  }
+}
+
+@media (max-width: 576px) {
+  .nav {
+    flex-direction: column;
+  }
+}

@@ -15,3 +15,11 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .get-birthday {
+    .get-birthday_container {
+      flex-wrap: wrap;
+    }
+  }
+}

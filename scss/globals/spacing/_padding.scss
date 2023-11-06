@@ -247,6 +247,10 @@
 }
 
 @media (max-width: 576px) {
+  .m-pt-0 {
+    padding-top: 0px;
+  }
+
   .m-pt-10 {
     padding-top: 10px;
   }
@@ -285,6 +289,10 @@
 
   .m-pt-100 {
     padding-top: 100px;
+  }
+
+  .m-pb-0 {
+    padding-bottom: 0px;
   }
 
   .m-pb-10 {
@@ -327,6 +335,10 @@
     padding-bottom: 100px;
   }
 
+  .m-pl-0 {
+    padding-left: 0px;
+  }
+
   .m-pl-10 {
     padding-left: 10px;
   }
@@ -365,6 +377,10 @@
 
   .m-pl-100 {
     padding-left: 100px;
+  }
+
+  .m-pr-0 {
+    padding-right: 0px;
   }
 
   .m-pr-10 {

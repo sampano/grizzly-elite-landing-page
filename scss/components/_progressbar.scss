@@ -28,7 +28,7 @@
   top: 50%;
   height: 12px;
   width: 100%;
-  background-color: #f47b20;
+  background-color: #faa61a;
   -webkit-transform: scaleX(0) translateY(-50%) perspective(1000px);
   transform: scaleX(0) translateY(-50%) perspective(1000px);
   -webkit-transform-origin: left center;
@@ -186,7 +186,7 @@
   width: 26px;
   height: 26px;
   background-color: #262626;
-  border: 5px solid #f47b20;
+  border: 5px solid #faa61a;
   border-radius: 50%;
   transition: 0.3s ease;
   z-index: 2;
@@ -197,7 +197,7 @@
   // border: 5px solid #f47b20;
 }
 #checkout-progress .progress-bar .step.valid:after {
-  background-color: #f47b20;
+  background-color: #faa61a;
   border: 5px solid #262626;
 }
 
@@ -232,4 +232,83 @@
   color: #2c3e50;
   -webkit-transform: scale(1.02) perspective(1000px);
   transform: scale(1.02) perspective(1000px);
+}
+
+@media (max-width: 576px) {
+  #checkout-progress .progress-bar .step:after {
+    width: 20px;
+    height: 20px;
+  }
+  #checkout-progress .progress-bar .step.valid:after {
+    border: 1px solid #262626;
+  }
+  #checkout-progress .progress-bar .step .round-center.active {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #faa61a;
+  }
+
+  #checkout-progress:before {
+    height: 10px;
+  }
+
+  #checkout-progress:after {
+    height: 7px;
+  }
+
+  #checkout-progress.step-2:after {
+    -webkit-transform: scaleX(0.06) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.06) translateY(-50%) perspective(1000px);
+  }
+  #checkout-progress.step-3:after {
+    -webkit-transform: scaleX(0.15) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.15) translateY(-50%) perspective(1000px);
+  }
+  #checkout-progress.step-4:after {
+    -webkit-transform: scaleX(0.227) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.227) translateY(-50%) perspective(1000px);
+  }
+  #checkout-progress.step-5:after {
+    -webkit-transform: scaleX(0.31) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.31) translateY(-50%) perspective(1000px);
+  }
+  #checkout-progress.step-6:after {
+    -webkit-transform: scaleX(0.4) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.4) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-7:after {
+    -webkit-transform: scaleX(0.48) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.48) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-8:after {
+    -webkit-transform: scaleX(0.567) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.567) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-9:after {
+    -webkit-transform: scaleX(0.655) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.655) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-10:after {
+    -webkit-transform: scaleX(0.735) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.735) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-11:after {
+    -webkit-transform: scaleX(0.82) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.82) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-12:after {
+    -webkit-transform: scaleX(0.9) translateY(-50%) perspective(1000px);
+    transform: scaleX(0.9) translateY(-50%) perspective(1000px);
+  }
+
+  #checkout-progress.step-13:after {
+    -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
+    transform: scaleX(1) translateY(-50%) perspective(1000px);
+  }
 }

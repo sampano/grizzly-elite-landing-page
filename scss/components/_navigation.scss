@@ -15,8 +15,21 @@
   }
 }
 
+@media (min-width: 1028px) {
+  .nav {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 @media (max-width: 576px) {
   .nav {
-    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+    .nav-logo {
+      margin: 0 auto;
+      text-align: center;
+    }
   }
 }

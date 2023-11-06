@@ -36,3 +36,16 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .get-number {
+    .get-number_container {
+      .get-number_label {
+        border-radius: 10px;
+        border: 2px solid #505050;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

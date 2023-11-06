@@ -39,3 +39,15 @@
   min-width: 700px;
   margin: 0 auto;
 }
+
+@media (max-width: 576px) {
+  .hero-input {
+    min-width: 100%;
+    //width: 100%;
+  }
+
+  .hero-select {
+    min-width: 100%;
+    //width: 100%;
+  }
+}

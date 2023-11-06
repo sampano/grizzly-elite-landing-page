@@ -11,7 +11,7 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 20px;
-  background-color: var(--text-color-primary);
+  background-color: var(--bg-color-secondary);
   border-radius: 7px;
   text-align: center;
   border: none;
@@ -81,7 +81,7 @@
   height: 48px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 

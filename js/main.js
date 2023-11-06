@@ -5,14 +5,18 @@ $(document).ready(function () {
     // Fade out the "nav-logo" first
     $(".nav-logo").fadeOut(400, function () {
       // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
+      $(".nav-logo").css({
+        margin: "0",
+        "text-align": "right",
+      });
       $(".previous-button, .nav-logo").fadeIn(400);
     });
 
     $(".container.get-started").fadeOut(400, function () {
       $(".get-name").fadeIn(400);
-      $(".next-button-container").fadeIn(400);
     });
 
+    $(".next-button-container").fadeIn(400);
     // Change the background image path of .hero-container
     $(".hero-container").css(
       "background-image",
@@ -30,9 +34,9 @@ $(document).ready(function () {
     var nextSection = $("#section" + nextStepNum);
     var prevStepNum = currentStepNum - 1;
     var prevStep = $(".step.step-" + prevStepNum);
+
     $(".btn-prev").removeClass("disabled");
-    console.log(prevStep);
-    console.log(currentStep);
+
     currentSection.fadeOut(400, function () {
       nextSection.fadeIn(400);
     });
@@ -54,15 +58,16 @@ $(document).ready(function () {
 
     currentStep.removeClass("active").addClass("valid");
 
-    // currentStep.find("span").addClass("opaque");
-    // currentStep.find(".fa.fa-check").removeClass("opaque");
     prevStep.find(".round-center").removeClass("active");
+
     currentStep.removeClass("active").addClass("valid");
+
     currentStep.addClass("active");
 
     nextStep.addClass("active");
-    // nextStep.find(".round-center").addClass("active");
+
     currentStep.find(".round-center").addClass("active");
+
     progressBar
       .removeAttr("class")
       .addClass("step-" + nextStepNum)
@@ -77,31 +82,32 @@ $(document).ready(function () {
     var prevStep = $(".step.step-" + prevStepNum);
     var progressBar = $("#checkout-progress");
     var newStep = $(".step.step-" + newStepNum);
-    console.log(currentStepNum);
-    console.log(prevStepNum);
+
     $(".btn-next").removeClass("disabled");
     $("#section" + currentStepNum).toggle();
     $("#section" + prevStepNum).toggle();
-    console.log(currentStepNum);
+
     if (currentStepNum === 13) {
       $(".btn-submit").toggle();
       $(".btn-next").toggle();
     }
     if (currentStepNum === 1) {
-      return false;
-    }
-
-    if (prevStepNum === 1) {
       $(this).addClass("disabled");
-      $(".previous-button").fadeOut(400, function () {
-        // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
 
+      $(".previous-button").fadeOut(400);
+
+      $(".nav-logo").fadeOut(400, function () {
+        $(".nav-logo").css({
+          margin: "0 auto",
+          "text-align": "center",
+        });
         $(".nav-logo").fadeIn(400);
       });
 
-      $(".container.get-started").fadeIn(400, function () {
-        $(".get-name").fadeOut(400);
-        $(".next-button-container").fadeOut(400);
+      $(".next-button-container").fadeOut(400);
+
+      $(".container.get-started").fadeIn(300, function () {
+        $(".get-name").fadeOut(300);
       });
 
       // Change the background image path of .hero-container
@@ -109,6 +115,12 @@ $(document).ready(function () {
         "background-image",
         "url('./media/img/background_04.png')"
       );
+      prevStep.addClass("active").removeClass("valid");
+      return false;
+    }
+
+    if (prevStepNum === 1) {
+      $(this).addClass("disabled");
     }
 
     $(".checkout-progress")
@@ -116,13 +128,15 @@ $(document).ready(function () {
       .addClass(".step-" + prevStepNum);
 
     currentStep.removeClass("active");
+
     prevStep.find("span").removeClass("opaque");
-    prevStep.find(".fa.fa-check").addClass("opaque");
 
     prevStep.find(".round-center").removeClass("active");
 
     prevStep.addClass("active").removeClass("valid");
+
     newStep.find(".round-center").addClass("active");
+
     progressBar
       .removeAttr("class")
       .addClass("step-" + prevStepNum)
@@ -141,6 +155,10 @@ $(document).ready(function () {
       $(".timer").css("display", "none");
       $(".nav").css("justify-content", "center");
       $("#checkout-progress").css("display", "none");
+      $(".nav-logo").css({
+        margin: "0 auto",
+        "text-align": "center",
+      });
     });
   });
 });

@@ -39,24 +39,24 @@
   z-index: 2;
 }
 #checkout-progress.step-2:after {
-  -webkit-transform: scaleX(0.08) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.08) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.072) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.072) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-3:after {
-  -webkit-transform: scaleX(0.16) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.16) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.155) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.155) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-4:after {
   -webkit-transform: scaleX(0.24) translateY(-50%) perspective(1000px);
   transform: scaleX(0.24) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-5:after {
-  -webkit-transform: scaleX(0.33) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.33) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.324) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.324) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-6:after {
-  -webkit-transform: scaleX(0.41) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.41) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.408) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.408) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-7:after {
@@ -65,28 +65,28 @@
 }
 
 #checkout-progress.step-8:after {
-  -webkit-transform: scaleX(0.58) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.58) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.575) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.575) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-9:after {
-  -webkit-transform: scaleX(0.66) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.66) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.655) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.655) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-10:after {
-  -webkit-transform: scaleX(0.75) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.75) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.739) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.739) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-11:after {
-  -webkit-transform: scaleX(0.83) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.83) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.825) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.825) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-12:after {
-  -webkit-transform: scaleX(0.92) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.92) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.907) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.907) translateY(-50%) perspective(1000px);
 }
 
 #checkout-progress.step-13:after {
@@ -176,8 +176,25 @@
     height: 40px;
   }
 }
+
+#checkout-progress .progress-bar .step .round-center.active {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) perspective(1000px);
+  width: 26px;
+  height: 26px;
+  background-color: #262626;
+  border: 5px solid #f47b20;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  z-index: 2;
+}
+
 #checkout-progress .progress-bar .step.active:after {
-  //   border: 5px solid #2c3e50;
+  // background-color: #262626;
+  // border: 5px solid #f47b20;
 }
 #checkout-progress .progress-bar .step.valid:after {
   background-color: #f47b20;

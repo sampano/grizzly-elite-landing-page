@@ -38,15 +38,17 @@
         <div class="nav-logo m-width_30">
           <a href="#">
             <img
-              src="./media/logo/Grizzly Smaller Logo.png"
-              alt="Grizzly Logo"
+              src="./media/logo/Grizzly_Smaller_Logo_Red.png"
+              alt="Grizzly Logo Red"
             />
           </a>
         </div>
-        <div class="timer m-width_100 m-text-align_center">
-          <p class="font-size_18px font-color_white font-weight_600">
-            00:<span class="font-color_red">14:39</span>
-          </p>
+        <div class="timer m-width_100 text-align_center m-text-align_center">
+          <div class="timer-container">
+            <p class="font-size_18px font-color_white font-weight_600">
+              00:<span class="font-color_red">14:39</span>
+            </p>
+          </div>
         </div>
       </nav>
     </header>
@@ -158,6 +160,8 @@
                     class="display_block hero-input mb-50"
                     type="text"
                     placeholder="Enter Your Name"
+                    id="firstName"
+                    required
                   />
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
@@ -169,14 +173,15 @@
                 <div
                   class="font-color_white text-align_center pl-80 pr-80 m-pl-0 m-pr-0"
                 >
-                  <h1 class="pb-30 pl-50 pr-50 m-font-size_32px">
-                    YESSIR! Great to have you here, Jhon. What email can we
-                    reach you on?
-                  </h1>
+                  <h1
+                    id="welcomeMessage"
+                    class="pb-30 pl-50 pr-50 m-font-size_32px"
+                  ></h1>
                   <input
                     class="display_block hero-input mb-50"
                     type="email"
                     placeholder="Enter Your E-mail"
+                    required
                   />
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
@@ -203,6 +208,7 @@
                       placeholder="Birthday"
                       onfocus="(this.type='date')"
                       onblur="(this.type='text')"
+                      required
                     />
                     <select class="hero-select get-birthday_select">
                       <option value>Graduation Year-</option>
@@ -227,8 +233,9 @@
                   </h1>
                   <input
                     class="display_block hero-input mb-50"
-                    type="email"
+                    type="text"
                     placeholder="Enter Your Dream University Name"
+                    required
                   />
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
@@ -274,15 +281,12 @@
                 <div
                   class="font-color_white text-align_center pl-40 pr-40 m-pl-0 m-pr-0"
                 >
-                  <h1 class="pb-30 m-font-size_32px">
-                    Jhon, be honest… what do you think is (or will be) the #1
-                    biggest obstacle holding you back from acceptance into your
-                    Dream University above?
-                  </h1>
+                  <h1 id="getEcsMessage" class="pb-30 m-font-size_32px"></h1>
                   <input
                     class="display_block hero-input mb-50"
-                    type="email"
+                    type="text"
                     placeholder="Your Opinion"
+                    required
                   />
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>
@@ -347,6 +351,7 @@
                     class="display_block hero-input mb-50"
                     type="text"
                     placeholder="Answer"
+                    required
                   />
                   <!-- <a href="#" class="button_primary">Next</a> -->
                 </div>

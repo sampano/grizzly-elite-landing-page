@@ -35,6 +35,30 @@ $(document).ready(function () {
     var prevStepNum = currentStepNum - 1;
     var prevStep = $(".step.step-" + prevStepNum);
 
+    const $firstNameElement = $("#firstName");
+    const $welcomeMessage = $("#welcomeMessage");
+    const $getEcsMessage = $("#getEcsMessage");
+    const firstName = $firstNameElement.val();
+
+    console.log(firstName);
+    if (firstName !== "") {
+      $welcomeMessage.text(
+        `YESSIR! Great to have you here, ${firstName}. What email can we reach you on?`
+      );
+
+      $getEcsMessage.text(
+        `${firstName}, be honest… what do you think is (or will be) the #1 biggest obstacle holding you back from acceptance into your Dream University above?`
+      );
+    } else {
+      $welcomeMessage.text(
+        "YESSIR! Great to have you here, Jhon. What email can we reach you on?"
+      );
+
+      $getEcsMessage.text(
+        "Jhon, be honest… what do you think is (or will be) the #1 biggest obstacle holding you back from acceptance into your Dream University above?"
+      );
+    }
+
     $(".btn-prev").removeClass("disabled");
 
     currentSection.fadeOut(400, function () {
@@ -42,7 +66,7 @@ $(document).ready(function () {
     });
 
     $(".btn-next").fadeOut(400, function () {
-      if (nextStepNum == 13) {
+      if (nextStepNum === 13) {
         $(this).fadeOut(400, function () {
           $(".btn-submit").fadeIn(400);
           $(".btn-next").fadeOut(400);
@@ -97,10 +121,18 @@ $(document).ready(function () {
       $(".previous-button").fadeOut(400);
 
       $(".nav-logo").fadeOut(400, function () {
-        $(".nav-logo").css({
-          margin: "0 auto",
-          "text-align": "center",
-        });
+        if ($(window).width() <= 576) {
+          $(".nav-logo").css({
+            margin: "0 auto",
+            "text-align": "center",
+          });
+        } else {
+          $(".nav-logo").css({
+            margin: "0",
+            "text-align": "center",
+          });
+        }
+
         $(".nav-logo").fadeIn(400);
       });
 

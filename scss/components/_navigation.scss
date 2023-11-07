@@ -10,8 +10,16 @@
   }
 
   .timer {
-    border-top: 1px solid var(--bg-color-secondary);
-    border-bottom: 1px solid var(--bg-color-secondary);
+    width: 100px;
+    .timer-container {
+      border-top: 1px solid var(--bg-color-secondary);
+      border-bottom: 1px solid var(--bg-color-secondary);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+  .previous-button {
+    width: 100px;
   }
 }
 
@@ -30,6 +38,10 @@
     .nav-logo {
       margin: 0 auto;
       text-align: center;
+    }
+
+    .timer {
+      width: 100%;
     }
   }
 }

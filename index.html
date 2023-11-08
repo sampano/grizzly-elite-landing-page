@@ -156,14 +156,29 @@
                     But before we start - we don't wanna be rude… So what’s your
                     name?
                   </h1>
-                  <input
-                    class="display_block hero-input mb-50"
-                    type="text"
-                    placeholder="Enter Your Name"
-                    id="firstName"
-                    required
-                  />
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div class="mb-50">
+                    <input
+                      class="display_block hero-input get-input"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      id="firstName"
+                      required
+                    />
+                    <span class="field-error"></span>
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -177,13 +192,28 @@
                     id="welcomeMessage"
                     class="pb-30 pl-50 pr-50 m-font-size_32px"
                   ></h1>
-                  <input
-                    class="display_block hero-input mb-50"
-                    type="email"
-                    placeholder="Enter Your E-mail"
-                    required
-                  />
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div class="mb-50">
+                    <input
+                      class="display_block hero-input get-input"
+                      type="email"
+                      placeholder="Enter Your E-mail"
+                      required
+                    />
+                    <span class="field-error"></span>
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -201,23 +231,41 @@
                     BOOM! Now What’s Your High School Graduation Year and
                     Birthday?
                   </h1>
-                  <div class="get-birthday_container pb-50">
-                    <input
-                      class="hero-input mb-50 get-birthday_input"
-                      type="text"
-                      placeholder="Birthday"
-                      onfocus="(this.type='date')"
-                      onblur="(this.type='text')"
-                      required
-                    />
-                    <select class="hero-select get-birthday_select">
-                      <option value>Graduation Year-</option>
-                      <option value="">2024</option>
-                      <option value="">2023</option>
-                      <option value="">2022</option>
-                    </select>
+                  <div class="pb-50">
+                    <div class="get-birthday_container">
+                      <input
+                        class="hero-input get-birthday_input get-input"
+                        type="text"
+                        placeholder="Birthday"
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')"
+                        required
+                      />
+                      <select
+                        class="hero-select get-birthday_select get-input"
+                        id="gradYear"
+                      >
+                        <option value="">Graduation Year-</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                      </select>
+                    </div>
+                    <span class="field-error"></span>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -231,13 +279,16 @@
                     Great, now let’s get you IN. What are your dream Elite
                     Universities?
                   </h1>
-                  <input
-                    class="display_block hero-input mb-50"
-                    type="text"
-                    placeholder="Enter Your Dream University Name"
-                    required
-                  />
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div class="mb-50">
+                    <input
+                      class="display_block hero-input get-input"
+                      type="text"
+                      placeholder="Enter Your Dream University Name"
+                      required
+                    />
+                    <span class="field-error"></span>
+                  </div>
+                  <a href="#" class="btn btn-next button_primary">Next</a>
                 </div>
               </div>
             </div>
@@ -251,27 +302,49 @@
                     You’re making progress. Please List out Your Three “Best”
                     ECs.
                   </h1>
+
                   <div class="get-ecs_container pb-50">
-                    <select class="hero-select get-ecs_select mb-30">
-                      <option value>1</option>
-                      <option value="">2024</option>
-                      <option value="">2023</option>
-                      <option value="">2022</option>
-                    </select>
-                    <select class="hero-select get-ecs_select mb-30">
-                      <option value>2</option>
-                      <option value="">2024</option>
-                      <option value="">2023</option>
-                      <option value="">2022</option>
-                    </select>
-                    <select class="hero-select get-ecs_select mb-30">
-                      <option value>3</option>
-                      <option value="">2024</option>
-                      <option value="">2023</option>
-                      <option value="">2022</option>
-                    </select>
+                    <div class="">
+                      <select
+                        class="hero-select get-ecs_select get-input mb-30"
+                      >
+                        <option value>1</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                      </select>
+
+                      <select
+                        class="hero-select get-ecs_select get-input mb-30"
+                      >
+                        <option value>2</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                      </select>
+
+                      <select class="hero-select get-ecs_select get-input">
+                        <option value>3</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                      </select>
+                    </div>
+                    <span class="field-error"></span>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -282,13 +355,28 @@
                   class="font-color_white text-align_center pl-40 pr-40 m-pl-0 m-pr-0"
                 >
                   <h1 id="getEcsMessage" class="pb-30 m-font-size_32px"></h1>
-                  <input
-                    class="display_block hero-input mb-50"
-                    type="text"
-                    placeholder="Your Opinion"
-                    required
-                  />
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div class="mb-50">
+                    <input
+                      class="display_block hero-input"
+                      type="text"
+                      placeholder="Your Opinion"
+                      required
+                    />
+                    <span class="field-error"></span>
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -307,28 +395,47 @@
                     picture of your last 7 (or of your last 96%+) in school.
                     This can also be a screenshot of your grades online/canvas.
                   </h1>
-                  <input
-                    class="display_block hero-input file-images_input"
-                    type="file"
-                    placeholder="No Choose File"
-                    id="file-images"
-                    name="file-images"
-                  />
-                  <label for="file-images" class="file-images_label"
-                    ><div class="file-images_label-container">
-                      <div class="choose-file">
-                        <p class="width_20 mb-0 display_inline">
-                          No Choose File
-                        </p>
-                      </div>
-                      <div class="upload-file">
-                        <p class="width_20 mb-0 font-size_14px display_inline">
-                          Upload File
-                        </p>
-                      </div>
-                    </div></label
+                  <div class="mb-30">
+                    <input
+                      class="display_block hero-input file-images_input get-input"
+                      type="file"
+                      placeholder="No Choose File"
+                      id="file-upload"
+                      name="file-upload"
+                      multiple="true"
+                    />
+                    <label for="file-upload" class="file-images_label"
+                      ><div class="file-images_label-container">
+                        <div class="choose-file">
+                          <p class="width_20 mb-0 display_inline">
+                            No Choose File
+                          </p>
+                        </div>
+                        <div class="upload-file">
+                          <p
+                            class="width_20 mb-0 font-size_14px display_inline"
+                          >
+                            Upload File
+                          </p>
+                        </div>
+                      </div></label
+                    >
+                    <span class="field-error"></span>
+                    <div id="file-list"></div>
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
                   >
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -347,13 +454,28 @@
                   >
                     Why do you think you'd be a good fit for The Academy?
                   </h1>
-                  <input
-                    class="display_block hero-input mb-50"
-                    type="text"
-                    placeholder="Answer"
-                    required
-                  />
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div class="mb-50">
+                    <input
+                      class="display_block hero-input get-input"
+                      type="text"
+                      placeholder="Answer"
+                      required
+                    />
+                    <span class="field-error"></span>
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -367,9 +489,7 @@
                 <div
                   class="font-color_white text-align_center pl-40 pr-40 m-pl-0 m-pr-0"
                 >
-                  <h4 class="font-weight_400 mb-20">
-                    Almost there, Jhon, just 4 more questions.
-                  </h4>
+                  <h4 class="font-weight_400 mb-20" id="getNumMessage"></h4>
                   <h1 class="pb-30 m-font-size_32px">
                     On a scale of 1-10... (1 being I'm fine where I am, and 10
                     being I'll do anything to get into my dream university.)
@@ -547,8 +667,21 @@
                         </div></label
                       >
                     </div>
+                    <span class="field-error"></span>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -631,7 +764,19 @@
                       <p class="pt-20">Reddit</p>
                     </div>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -696,7 +841,19 @@
                       >
                     </div>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -756,7 +913,19 @@
                       >
                     </div>
                   </div>
-                  <!-- <a href="#" class="button_primary">Next</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -803,22 +972,21 @@
                       placeholder="First name"
                     />
                   </div>
-                  <!-- <a href="#" class="button_primary">Submit</a> -->
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  >
+                    <a href="#" class="btn btn-next button_primary"
+                      >Next
+                      <img
+                        class="arrow-icon"
+                        src="./media/img/arrow_icon.png"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="container next-button-container text-align_center"
-              style="display: none"
-            >
-              <a href="#" class="btn btn-next button_primary"
-                >Next
-                <img
-                  class="arrow-icon"
-                  src="./media/img/arrow_icon.png"
-                  alt=""
-                />
-              </a>
             </div>
             <button
               type="submit"

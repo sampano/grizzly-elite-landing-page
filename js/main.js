@@ -22,6 +22,62 @@ $(document).ready(function () {
       "background-image",
       "url('./media/img/background_03.png')"
     );
+
+    $("#file-upload").on("change", function () {
+      const $fileList = $("#file-list");
+      $fileList.empty(); // Clear the file list
+
+      const $input = $(this);
+
+      if (this.files.length === 0) {
+        $fileList.text("No files selected.");
+        return;
+      }
+
+      const maxSize = 2 * 1024 * 1024; // 2MB
+
+      const $ul = $("<ul>");
+      let isAllValid = true;
+
+      $.each(this.files, function (i, file) {
+        // Check the file size of each selected file
+        if (file.size > maxSize) {
+          alert(
+            "Invalid file size for " +
+              file.name +
+              ". Please select a file less than or equal to 2MB."
+          );
+          isAllValid = false;
+          return false; // Exit the loop if a file is invalid
+        }
+
+        // Getting the file extension (e.g., .jpg, .png, etc.)
+        const extension = file.name.substr(file.name.lastIndexOf("."));
+
+        // Define allowed file types
+        const allowedExtensionsRegx = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+        // Testing extension with regular expression
+        const isAllowed = allowedExtensionsRegx.test(extension);
+
+        if (!isAllowed) {
+          alert("Invalid File Type for " + file.name);
+          isAllValid = false;
+          return false; // Exit the loop if a file is invalid
+        }
+
+        // Create a list item for each valid file
+        const $li = $("<li>").text(file.name);
+        $ul.append($li);
+      });
+
+      if (isAllValid) {
+        $fileList.append($ul);
+        // Your file upload logic goes here...
+      } else {
+        $fileList.text("Some files are invalid.");
+      }
+    });
   });
 
   $(".btn-next").on("click", function () {
@@ -34,68 +90,96 @@ $(document).ready(function () {
     var nextSection = $("#section" + nextStepNum);
     var prevStepNum = currentStepNum - 1;
     var prevStep = $(".step.step-" + prevStepNum);
+    const firstNameElement = $("#firstName");
+    const welcomeMessage = $("#welcomeMessage");
+    const getEcsMessage = $("#getEcsMessage");
+    const getNumMessage = $("#getNumMessage");
+    const firstName = firstNameElement.val();
 
-    const $firstNameElement = $("#firstName");
-    const $welcomeMessage = $("#welcomeMessage");
-    const $getEcsMessage = $("#getEcsMessage");
-    const firstName = $firstNameElement.val();
+    //const currentInput = currentSection.find(".get-input").val();
 
-    console.log(firstName);
+    const inputValues = [];
+    const inputElements = currentSection.find(".get-input");
+    const $fieldError = currentSection.find(".field-error");
+    let isAnyInputEmpty = false; // Variable to track if any input is empty
+
+    // MESSAGES
     if (firstName !== "") {
-      $welcomeMessage.text(
+      welcomeMessage.text(
         `YESSIR! Great to have you here, ${firstName}. What email can we reach you on?`
       );
-
-      $getEcsMessage.text(
+      getEcsMessage.text(
         `${firstName}, be honest… what do you think is (or will be) the #1 biggest obstacle holding you back from acceptance into your Dream University above?`
       );
-    } else {
-      $welcomeMessage.text(
-        "YESSIR! Great to have you here, Jhon. What email can we reach you on?"
-      );
-
-      $getEcsMessage.text(
-        "Jhon, be honest… what do you think is (or will be) the #1 biggest obstacle holding you back from acceptance into your Dream University above?"
-      );
+      getNumMessage.text(` Almost there, ${firstName}, just 4 more questions.`);
     }
 
-    $(".btn-prev").removeClass("disabled");
+    inputElements.each(function () {
+      const $this = $(this);
+      const inputValue = $(this).val();
+      const inputType = $(this).prop("type");
+      inputValues.push(inputValue);
 
-    currentSection.fadeOut(400, function () {
-      nextSection.fadeIn(400);
-    });
+      //console.log(inputType);
 
-    $(".btn-next").fadeOut(400, function () {
-      if (nextStepNum === 13) {
-        $(this).fadeOut(400, function () {
-          $(".btn-submit").fadeIn(400);
-          $(".btn-next").fadeOut(400);
-        });
-      } else {
-        $(".btn-next").fadeIn(400);
+      if (inputType === "text") {
+        if (inputValue.length <= 1) {
+          isAnyInputEmpty = true;
+          $fieldError.text("This field is required.");
+        }
+      } else if (inputType === "email") {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailPattern.test(inputValue)) {
+          isAnyInputEmpty = true;
+          $fieldError.text("Please enter a valid email.");
+        }
+      } else if (inputValue === "") {
+        isAnyInputEmpty = true;
+        $fieldError.text("This field is required.");
       }
     });
 
-    $(".checkout-progress")
-      .removeClass(".step-" + currentStepNum)
-      .addClass(".step-" + (currentStepNum + 1));
+    if (!isAnyInputEmpty) {
+      $(".btn-prev").removeClass("disabled");
+      $fieldError.text("");
+      currentSection.fadeOut(400, function () {
+        nextSection.fadeIn(400);
+      });
 
-    currentStep.removeClass("active").addClass("valid");
+      $(".btn-next").fadeOut(400, function () {
+        if (nextStepNum === 13) {
+          $(this).fadeOut(400, function () {
+            $(".btn-submit").fadeIn(400);
+            $(".btn-next").fadeOut(400);
+          });
+        } else {
+          $(".btn-next").fadeIn(400);
+        }
+      });
 
-    prevStep.find(".round-center").removeClass("active");
+      $(".checkout-progress")
+        .removeClass(".step-" + currentStepNum)
+        .addClass(".step-" + (currentStepNum + 1));
 
-    currentStep.removeClass("active").addClass("valid");
+      currentStep.removeClass("active").addClass("valid");
 
-    currentStep.addClass("active");
+      prevStep.find(".round-center").removeClass("active");
 
-    nextStep.addClass("active");
+      currentStep.removeClass("active").addClass("valid");
 
-    currentStep.find(".round-center").addClass("active");
+      currentStep.addClass("active");
 
-    progressBar
-      .removeAttr("class")
-      .addClass("step-" + nextStepNum)
-      .data("current-step", nextStepNum);
+      nextStep.addClass("active");
+
+      currentStep.find(".round-center").addClass("active");
+
+      progressBar
+        .removeAttr("class")
+        .addClass("step-" + nextStepNum)
+        .data("current-step", nextStepNum);
+    } else {
+      console.log("Please provide full details");
+    }
   });
 
   $(".btn-prev").on("click", function () {

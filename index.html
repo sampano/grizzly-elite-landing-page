@@ -164,7 +164,10 @@
                       id="firstName"
                       required
                     />
-                    <span class="field-error"></span>
+                    <span
+                      class="field-error input-field-error"
+                      id="firstNameErr"
+                    ></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -197,9 +200,13 @@
                       class="display_block hero-input get-input"
                       type="email"
                       placeholder="Enter Your E-mail"
+                      id="eMail"
                       required
                     />
-                    <span class="field-error"></span>
+                    <span
+                      class="field-error input-field-error"
+                      id="eMailErr"
+                    ></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -233,14 +240,18 @@
                   </h1>
                   <div class="pb-50">
                     <div class="get-birthday_container">
-                      <input
-                        class="hero-input get-birthday_input get-input"
-                        type="text"
-                        placeholder="Birthday"
-                        onfocus="(this.type='date')"
-                        onblur="(this.type='text')"
-                        required
-                      />
+                      <div>
+                        <input
+                          class="hero-input get-birthday_input get-input get-bdate"
+                          type="text"
+                          placeholder="Birthday"
+                          id="birthDate"
+                          onfocus="(this.type='date')"
+                          onblur="(this.type='text')"
+                          required
+                        />
+                        <span class="field-error" id="birthDateErr"></span>
+                      </div>
                       <select
                         class="hero-select get-birthday_select get-input"
                         id="gradYear"
@@ -250,8 +261,11 @@
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                       </select>
+                      <span
+                        class="field-error input-field-error"
+                        id="gradYearErr"
+                      ></span>
                     </div>
-                    <span class="field-error"></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -285,8 +299,12 @@
                       type="text"
                       placeholder="Enter Your Dream University Name"
                       required
+                      id="dreamUni"
                     />
-                    <span class="field-error"></span>
+                    <span
+                      class="field-error input-field-error"
+                      id="dreamUniErr"
+                    ></span>
                   </div>
                   <a href="#" class="btn btn-next button_primary">Next</a>
                 </div>
@@ -305,32 +323,43 @@
 
                   <div class="get-ecs_container pb-50">
                     <div class="">
-                      <select
-                        class="hero-select get-ecs_select get-input mb-30"
-                      >
-                        <option value>1</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </select>
-
-                      <select
-                        class="hero-select get-ecs_select get-input mb-30"
-                      >
-                        <option value>2</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </select>
-
-                      <select class="hero-select get-ecs_select get-input">
-                        <option value>3</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </select>
+                      <div>
+                        <select
+                          class="hero-select get-ecs_select get-input mb-30"
+                          id="questionEc1"
+                        >
+                          <option value>1</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                        </select>
+                        <span class="field-error" id="questionEc1Err"></span>
+                      </div>
+                      <div>
+                        <select
+                          class="hero-select get-ecs_select get-input mb-30"
+                          id="questionEc2"
+                        >
+                          <option value>2</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                        </select>
+                        <span class="field-error" id="questionEc2Err"></span>
+                      </div>
+                      <div>
+                        <select
+                          class="hero-select get-ecs_select get-input"
+                          id="questionEc3"
+                        >
+                          <option value>3</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                        </select>
+                        <span class="field-error" id="questionEc3Err"></span>
+                      </div>
                     </div>
-                    <span class="field-error"></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -361,8 +390,12 @@
                       type="text"
                       placeholder="Your Opinion"
                       required
+                      id="yourOpinion"
                     />
-                    <span class="field-error"></span>
+                    <span
+                      class="field-error input-field-error"
+                      id="yourOpinionErr"
+                    ></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -400,11 +433,11 @@
                       class="display_block hero-input file-images_input get-input"
                       type="file"
                       placeholder="No Choose File"
-                      id="file-upload"
-                      name="file-upload"
+                      id="fileUpload"
+                      name="fileUpload"
                       multiple="true"
                     />
-                    <label for="file-upload" class="file-images_label"
+                    <label for="fileUpload" class="file-images_label"
                       ><div class="file-images_label-container">
                         <div class="choose-file">
                           <p class="width_20 mb-0 display_inline">
@@ -420,7 +453,7 @@
                         </div>
                       </div></label
                     >
-                    <span class="field-error"></span>
+                    <span class="field-error" id="fileUploadErr"></span>
                     <div id="file-list"></div>
                   </div>
                   <div
@@ -460,8 +493,9 @@
                       type="text"
                       placeholder="Answer"
                       required
+                      id="academyQuestion"
                     />
-                    <span class="field-error"></span>
+                    <span class="field-error" id="academyQuestion"></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -501,7 +535,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber1"
-                        name="get-number"
+                        name="getScale"
                       />
 
                       <label for="getNumber1" class="get-number_label">
@@ -519,7 +553,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber2"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber2" class="get-number_label">
                         <div class="get-number_item">
@@ -536,7 +570,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber3"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber3" class="get-number_label"
                         ><div class="get-number_item">
@@ -553,7 +587,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber4"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber4" class="get-number_label"
                         ><div class="get-number_item">
@@ -570,7 +604,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber5"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber5" class="get-number_label"
                         ><div class="get-number_item">
@@ -587,7 +621,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber6"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber6" class="get-number_label"
                         ><div class="get-number_item">
@@ -604,7 +638,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber7"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber7" class="get-number_label"
                         ><div class="get-number_item">
@@ -621,7 +655,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber8"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber8" class="get-number_label"
                         ><div class="get-number_item">
@@ -638,7 +672,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber9"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber9" class="get-number_label"
                         ><div class="get-number_item">
@@ -655,7 +689,7 @@
                         class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber10"
-                        name="get-number"
+                        name="getScale"
                       />
                       <label for="getNumber10" class="get-number_label"
                         ><div class="get-number_item">
@@ -667,7 +701,7 @@
                         </div></label
                       >
                     </div>
-                    <span class="field-error"></span>
+                    <span class="field-error" id="getScaleErr"></span>
                   </div>
                   <div
                     class="container next-button-container text-align_center"

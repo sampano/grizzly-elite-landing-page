@@ -1,10 +1,15 @@
 $(document).ready(function () {
+  $("#grizzlyForm").on("keypress", function (e) {
+    if (e.which === 13) {
+      e.preventDefault();
+    }
+  });
+
   $("#get-started").click(function () {
     $(".step-0").addClass("valid");
-
+    $(".btn-next").prop("disabled", false);
     // Fade out the "nav-logo" first
     $(".nav-logo").fadeOut(400, function () {
-      // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
       $(".nav-logo").css({
         margin: "0",
         "text-align": "right",
@@ -18,21 +23,23 @@ $(document).ready(function () {
 
     $(".next-button-container").fadeIn(400);
     // Change the background image path of .hero-container
-    $(".hero-container").css(
-      "background-image",
-      "url('./media/img/background_03.png')"
-    );
+    // $(".hero-container").css(
+    //   "background-image",
+    //   "url('./media/img/background_03.png')"
+    // );
 
+    let fileUploadValid = false;
+    let isGetScaleEmpty = false;
     $("#fileUpload").on("change", function () {
       const $fileList = $("#file-list");
-      const fileUploadErr = $("#fileUploadErr");
-
+      const fileUploadErr = $("#fileUploadLabel");
+      fileUploadValid = false;
       $fileList.empty(); // Clear the file list
 
       const $input = $(this);
 
       if (this.files.length === 0) {
-        $fileList.text("No files selected.");
+        fileUploadErr.text("No files selected.");
         return;
       }
 
@@ -44,11 +51,6 @@ $(document).ready(function () {
       $.each(this.files, function (i, file) {
         // Check the file size of each selected file
         if (file.size > maxSize) {
-          // alert(
-          //   "Invalid file size for " +
-          //     file.name +
-          //     ". Please select a file less than or equal to 2MB."
-          // );
           fileUploadErr.text(
             `Invalid file size for ${file.name}. Please select a file less than or equal to 2MB.`
           );
@@ -70,22 +72,37 @@ $(document).ready(function () {
 
           isAllValid = false;
           return false; // Exit the loop if a file is invalid
+        } else {
+          if (isAllValid) {
+            fileUploadErr.text(`${file.name}`);
+            isAnyInputEmpty = true;
+            fileUploadValid = true;
+            //console.log("validationForm" + fileUploadValid);
+            // Your file upload logic goes here...
+          }
         }
-
-        // Create a list item for each valid file
-        const $li = $("<li>").text(file.name);
-        $ul.append($li);
       });
-
-      if (isAllValid) {
-        $fileList.append($ul);
-        // Your file upload logic goes here...
-      } else {
-        $fileList.text("Some files are invalid.");
-      }
     });
 
+    let isgetScalesChecked = false;
+    let isgetBrandChecked = false;
+    // const isgetScalesChecked = $("input[name='getScale']").is(":checked");
+    // console.log("outside" +isgetScalesChecked);
+    // const getScales =
+    //   $("#getScale").prop("name") === "getScale" &&
+    //   $("#getScale").prop("checked");
+    $('input[name="getScale"]').on("change", function () {
+      isgetScalesChecked = true;
+    });
+
+    $('input[name="getBrand"]').on("change", function () {
+      isgetBrandChecked = true;
+    });
+    // Variable to track if any input is empty
+
     $(".btn-next").on("click", function () {
+      //console.log(isgetBrandChecked);
+      //console.log("buttonNExt" + fileUploadValid);
       var currentStepNum = $("#checkout-progress").data("current-step");
       var nextStepNum = currentStepNum + 1;
       var currentStep = $(".step.step-" + currentStepNum);
@@ -99,14 +116,16 @@ $(document).ready(function () {
       const welcomeMessage = $("#welcomeMessage");
       const getEcsMessage = $("#getEcsMessage");
       const getNumMessage = $("#getNumMessage");
+      const getPaymentMessage = $("#getPayment");
       const firstName = firstNameElement.val();
-      const getScales = $('input[name="getScale"]');
+
+      //const getScale = getScales.filter(":checked");
       //const currentInput = currentSection.find(".get-input").val();
+      let isAnyInputEmpty = false; // Variable to track if any input is empty
 
       const inputValues = [];
       const inputElements = currentSection.find(".get-input");
       const $fieldError = currentSection.find(".input-field-error");
-      let isAnyInputEmpty = false; // Variable to track if any input is empty
 
       // MESSAGES
       if (firstName !== "") {
@@ -116,74 +135,52 @@ $(document).ready(function () {
         getEcsMessage.text(
           `${firstName}, be honest… what do you think is (or will be) the #1 biggest obstacle holding you back from acceptance into your Dream University above?`
         );
-        getNumMessage.text(
-          ` Almost there, ${firstName}, just 4 more questions.`
+        getNumMessage.text(` Almost there, , just 4 more questions.`);
+        getPaymentMessage.text(
+          ` Alright, ${firstName} this is it - you’re at the last question.`
         );
       }
 
-      inputElements.each(function () {
+      inputElements.each(function (e) {
         const $this = $(this);
         const inputValue = $(this).val();
         const inputType = $(this).prop("type");
         const inputID = $(this).prop("id");
         inputValues.push(inputValue);
 
-        //console.log(inputID);
-        //console.log(inputType);
-
-        //   if (inputType === "text") {
-        //     if (inputValue.length <= 1) {
-        //       isAnyInputEmpty = true;
-        //       $fieldError.text("This field is required.");
-        //     }
-        //   } else if (inputType === "email") {
-        //     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        //     if (!emailPattern.test(inputValue)) {
-        //       isAnyInputEmpty = true;
-        //       $fieldError.text("Please enter a valid email.");
-        //     }
-        //   } else if (inputValue === "") {
-        //     isAnyInputEmpty = true;
-        //     $fieldError.text("This field is required.");
-        //   } else if (inputValue === "date") {
-        //     if (inputID === "birthDate") {
-        //       console.log("ddd");
-        //     }
-        //   }
-
+        //console.log(getScales);
         if (inputType === "text") {
           if (inputID === "birthDate") {
             const today = new Date();
             const birthDate = $("#birthDate").val();
             const inputDate = new Date(birthDate);
             const birthDateErrElement = $("#birthDateErr");
-
-            if (birthDate !== "") {
+            const gradYear = $("#gradYear").val();
+            if (birthDate !== "" && gradYear !== "") {
+              const ageDifference =
+                today.getFullYear() - inputDate.getFullYear();
               // Check if the input is a valid date
               if (isNaN(inputDate.getTime())) {
                 isAnyInputEmpty = true;
-                birthDateErrElement.text("Invalid birth date.");
               } else if (inputDate > today) {
-                birthDateErrElement.text("Birth date cannot be in the future.");
                 isAnyInputEmpty = true;
-                //console.log("mali");
-              } else {
+              } else if (ageDifference < 5) {
                 // Check if the user is less than 12 years old
-                const ageDifference =
-                  today.getFullYear() - inputDate.getFullYear();
-                if (ageDifference < 12) {
-                  birthDateErrElement.text("You are too young.");
-                  isAnyInputEmpty = true;
-                }
+                // birthDateErrElement.text("You are too young.");
+              } else if (
+                isNaN(gradYear) ||
+                gradYear < new Date().getFullYear()
+              ) {
+                isAnyInputEmpty = true;
               }
             } else {
               isAnyInputEmpty = true;
-              birthDateErrElement.text("This field is required.");
+              // birthDateErrElement.text("This field is required.");
             }
           } else {
             if (inputValue.length <= 1) {
               isAnyInputEmpty = true;
-              $fieldError.text("This field is required.");
+              //alert("Please enter a valid email.");
             }
           }
         } else if (inputType === "email") {
@@ -193,20 +190,11 @@ $(document).ready(function () {
             isAnyInputEmpty = true;
             $fieldError.text("Please enter a valid email.");
           }
-        } else if (inputID === "gradYear") {
-          const gradYear = $("#gradYear").val();
-          const gradYearErrElement = $("#gradYearErr");
-          if (gradYear === "") {
-            isAnyInputEmpty = true;
-
-            gradYearErrElement.text("This field is required.");
-          }
         } else if (inputID === "questionEc1") {
           const questionEc1 = $("#questionEc1").val();
           const questionEc1ErrElement = $("#questionEc1Err");
           if (questionEc1 === "") {
             isAnyInputEmpty = true;
-
             questionEc1ErrElement.text("This field is required.");
           }
         } else if (inputID === "questionEc2") {
@@ -222,23 +210,21 @@ $(document).ready(function () {
           const questionEc3ErrElement = $("#questionEc3Err");
           if (questionEc3 === "") {
             isAnyInputEmpty = true;
-
-            questionEc3ErrElement.text("This field is required.");
           }
         } else if (inputID === "fileUpload") {
           const fileUpload = $("#fileUpload").val();
-          const fileUploadErr = $("#fileUploadErr");
+
           if (fileUpload === "") {
             isAnyInputEmpty = true;
-            fileUploadErr.text("Please upload your file.");
+          } else if (!fileUploadValid) {
+            isAnyInputEmpty = true;
           }
-        } else if (getScale.filter(":checked").length === 0) {
-          const getScaleErrElement = $("#getScaleErr");
-          getScaleErrElement.text("Please select a number.");
-          isAnyInputEmpty = true;
+        } else if (isgetScalesChecked) {
+          isAnyInputEmpty = false;
         } else {
           isAnyInputEmpty = true;
-          $fieldError.text("This field is required.");
+          //alert("asdkhasdk");
+          return false;
         }
       });
 
@@ -249,14 +235,15 @@ $(document).ready(function () {
           nextSection.fadeIn(400);
         });
 
-        $(".btn-next").fadeOut(400, function () {
+        $(".btn-next").fadeOut(300, function () {
           if (nextStepNum === 13) {
             $(this).fadeOut(400, function () {
               $(".btn-submit").fadeIn(400);
               $(".btn-next").fadeOut(400);
             });
           } else {
-            $(".btn-next").fadeIn(400);
+            $(".btn-next").fadeIn(600);
+            //$(".btn-next").prop("disabled", true);
           }
         });
 
@@ -280,12 +267,11 @@ $(document).ready(function () {
           .removeAttr("class")
           .addClass("step-" + nextStepNum)
           .data("current-step", nextStepNum);
-      } else {
-        console.log("Please provide full details");
       }
     });
 
     $(".btn-prev").on("click", function () {
+      // Set a timeout to re-enable the button after a delay (e.g., 2 seconds)
       var currentStepNum = $("#checkout-progress").data("current-step");
       var prevStepNum = currentStepNum - 1;
       var newStepNum = currentStepNum - 2;

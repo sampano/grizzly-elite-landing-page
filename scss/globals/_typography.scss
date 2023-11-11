@@ -68,6 +68,9 @@ input::placeholder {
 .text-align_center {
   text-align: center;
 }
+.text-align_left {
+  text-align: left;
+}
 @media (max-width: 576px) {
   .m-text-align_center {
     text-align: center;
@@ -109,4 +112,8 @@ option {
   background-clip: text;
   color: transparent;
   display: inline;
+}
+
+input:invalid {
+  text-align: left;
 }

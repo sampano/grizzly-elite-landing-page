@@ -1,10 +1,4 @@
 $(document).ready(function () {
-  $("#grizzlyForm").on("keypress", function (e) {
-    if (e.which === 13) {
-      e.preventDefault();
-    }
-  });
-
   $("#get-started").click(function () {
     $(".step-0").addClass("valid");
     $(".btn-next").prop("disabled", false);
@@ -33,6 +27,7 @@ $(document).ready(function () {
     $("#fileUpload").on("change", function () {
       const $fileList = $("#file-list");
       const fileUploadErr = $("#fileUploadLabel");
+      fileUploadErr.css("color", "#fff");
       fileUploadValid = false;
       $fileList.empty(); // Clear the file list
 
@@ -54,6 +49,7 @@ $(document).ready(function () {
           fileUploadErr.text(
             `Invalid file size for ${file.name}. Please select a file less than or equal to 2MB.`
           );
+          fileUploadErr.css("color", "#b21b20");
           isAllValid = false;
           return false; // Exit the loop if a file is invalid
         }
@@ -69,12 +65,13 @@ $(document).ready(function () {
 
         if (!isAllowed) {
           fileUploadErr.text(`Invalid File Type for ${file.name}.`);
-
+          fileUploadErr.css("color", "#b21b20");
           isAllValid = false;
           return false; // Exit the loop if a file is invalid
         } else {
           if (isAllValid) {
             fileUploadErr.text(`${file.name}`);
+            fileUploadErr.css("color", "#fff");
             isAnyInputEmpty = true;
             fileUploadValid = true;
             //console.log("validationForm" + fileUploadValid);
@@ -113,16 +110,17 @@ $(document).ready(function () {
       var prevStepNum = currentStepNum - 1;
       var prevStep = $(".step.step-" + prevStepNum);
       const firstNameElement = $("#firstName");
+      const firstName = firstNameElement.val();
       const welcomeMessage = $("#welcomeMessage");
       const getEcsMessage = $("#getEcsMessage");
       const getNumMessage = $("#getNumMessage");
       const getPaymentMessage = $("#getPayment");
-      const firstName = firstNameElement.val();
-
+      const userEmailElement = $("#eMail");
+      const userEmail = userEmailElement.val();
       //const getScale = getScales.filter(":checked");
       //const currentInput = currentSection.find(".get-input").val();
       let isAnyInputEmpty = false; // Variable to track if any input is empty
-
+      console.log(userEmail);
       const inputValues = [];
       const inputElements = currentSection.find(".get-input");
       const $fieldError = currentSection.find(".input-field-error");
@@ -139,6 +137,10 @@ $(document).ready(function () {
         getPaymentMessage.text(
           ` Alright, ${firstName} this is it - you’re at the last question.`
         );
+      }
+
+      if (userEmail !== "") {
+        $("#detailsEmail").val(userEmail);
       }
 
       inputElements.each(function (e) {
@@ -188,7 +190,7 @@ $(document).ready(function () {
             /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
           if (!emailPattern.test(inputValue)) {
             isAnyInputEmpty = true;
-            $fieldError.text("Please enter a valid email.");
+            //$fieldError.text("Please enter a valid email.");
           }
         } else if (inputID === "questionEc1") {
           const questionEc1 = $("#questionEc1").val();
@@ -348,23 +350,55 @@ $(document).ready(function () {
         .data("current-step", prevStepNum);
     });
 
-    $("button.btn-submit").click(function (e) {
-      e.preventDefault();
-      $(".get-details").fadeOut(400);
-      $(".btn-submit").fadeOut(400);
-      $(".get-verification").fadeIn(800);
-      $(".nav-logo").fadeOut(400, function () {
-        // After "nav-logo" is faded out, fade in the "previous-button" and "get-name"
-        $(".nav-logo").fadeIn(400);
-        $(".previous-button").css("display", "none");
-        $(".timer").css("display", "none");
-        $(".nav").css("justify-content", "center");
-        $("#checkout-progress").css("display", "none");
-        $(".nav-logo").css({
-          margin: "0 auto",
-          "text-align": "center",
-        });
-      });
+    $("#grizzlyForm").on("keypress", function (e) {
+      if (e.which === 13) {
+        e.preventDefault();
+      }
+    });
+    $("#grizzlyForm").submit(function (event) {
+      // Prevent the form from submitting by default
+      event.preventDefault();
+
+      const parentsEmail = $("#parentsEmail").val();
+      const fullName = $("#parentsFullName").val();
+      const parentsFullName = $("#parentsFullName").val();
+      const detailsEmail = $("#detailsEmail").val(); // Corrected the selector
+
+      if (
+        parentsEmail === "" ||
+        fullName === "" ||
+        parentsFullName === "" ||
+        detailsEmail === ""
+      ) {
+      } else {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (!emailPattern.test(parentsEmail)) {
+          alert("Please enter a valid email.");
+        } else if (fullName.length <= 1) {
+          alert("Please enter a valid full name.");
+        } else if (parentsFullName.length <= 1) {
+          alert("Please enter a valid parent's full name.");
+        } else if (detailsEmail.length <= 1) {
+          alert("Please enter valid details for email.");
+        } else {
+          // Your successful submission logic here
+          $(".get-details").fadeOut(400);
+          $(".btn-submit").fadeOut(400);
+          $(".get-verification").fadeIn(800);
+          $(".nav-logo").fadeOut(400, function () {
+            $(".nav-logo").fadeIn(400);
+            $(".previous-button").css("display", "none");
+            $(".timer").css("display", "none");
+            $(".nav").css("justify-content", "center");
+            $("#checkout-progress").css("display", "none");
+            $(".nav-logo").css({
+              margin: "0 auto",
+              "text-align": "center",
+            });
+          });
+        }
+      }
     });
   });
 });

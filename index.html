@@ -1152,40 +1152,53 @@
                   <div class="get-details_container">
                     <input
                       class="display_block hero-input mb-20 get-details_input"
-                      type="email"
-                      placeholder="First name"
+                      type="text"
+                      placeholder="Full name"
+                      id="fullName"
+                      name="fullName"
+                      oninput="clearInvalidMessage()"
                     />
 
                     <input
                       class="display_block hero-input mb-20 get-details_input"
                       type="email"
-                      placeholder="Last name"
+                      placeholder="Email"
+                      id="detailsEmail"
+                      name="detailsEmail"
+                      oninput="clearInvalidMessage()"
+                      value=""
+                    />
+
+                    <input
+                      class="display_block hero-input mb-20 get-details_input"
+                      type="text"
+                      placeholder="Parents full name"
+                      id="parentsFullName"
+                      name="parentsFullName"
+                      oninput="clearInvalidMessage()"
                     />
 
                     <input
                       class="display_block hero-input mb-20 get-details_input"
                       type="email"
-                      placeholder="E-mail"
-                    />
-
-                    <input
-                      class="display_block hero-input mb-20 get-details_input"
-                      type="email"
-                      placeholder="First name"
+                      placeholder="Parents email"
+                      id="parentsEmail"
+                      name="parentsEmail"
+                      oninput="clearInvalidMessage()"
                     />
                   </div>
                   <div
                     class="container next-button-container text-align_center"
                     style="display: none"
                   >
-                    <a href="#" class="btn btn-next button_primary"
+                    <!-- <a href="#" class="btn btn-next button_primary"
                       >Next
                       <img
                         class="arrow-icon"
                         src="./media/img/arrow_icon.png"
                         alt=""
                       />
-                    </a>
+                    </a> -->
                   </div>
                 </div>
               </div>
@@ -1194,8 +1207,13 @@
               type="submit"
               class="btn btn-submit button_primary"
               style="display: none"
+              onclick="formValidation()"
             >
-              Submit
+              Submit<img
+                class="arrow-icon"
+                src="./media/img/arrow_icon.png"
+                alt=""
+              />
             </button>
           </form>
           <div
@@ -1252,10 +1270,15 @@
       const ecElement3 = document.getElementById("questionEc3");
       const yourOpinionElement = document.getElementById("yourOpinion");
       const academyQuestionElement = document.getElementById("academyQuestion");
+      const fullNameElement = document.getElementById("fullName");
+      const detailsEmailElement = document.getElementById("detailsEmail");
+      const parentsFullNameElement = document.getElementById("parentsFullName");
+      const parentsEmailElement = document.getElementById("parentsEmail");
+
       function formValidation() {
         let firstName = firstNameElement.value;
         firstNameElement.setCustomValidity("");
-
+        console.log("formValidation");
         if (firstNameElement.checkValidity()) {
           // Move to the next step or perform other actions
 
@@ -1421,6 +1444,88 @@
 
           academyQuestionElement.reportValidity();
         }
+
+        fullName = fullNameElement.value;
+        fullNameElement.setCustomValidity("");
+        if (fullNameElement.checkValidity()) {
+          console.log("validity");
+
+          if (fullName.length === 1) {
+            fullNameElement.setCustomValidity("Please enter a valid name.");
+
+            fullNameElement.reportValidity();
+          } else if (fullName.length === 0) {
+            fullNameElement.setCustomValidity("This field is required.");
+
+            fullNameElement.reportValidity();
+          }
+        } else {
+          fullNameElement.setCustomValidity("This field is required.hahaha");
+
+          fullNameElement.reportValidity();
+        }
+
+        detailsEmailElement.setCustomValidity("");
+        detailsEmail = detailsEmailElement.value;
+        if (detailsEmailElement.checkValidity()) {
+          if (detailsEmail.length === 1) {
+            fullNamdetailsEmailElementeElement.setCustomValidity(
+              "Please enter a valid name."
+            );
+
+            detailsEmailElement.reportValidity();
+          } else if (fullName.length === 0) {
+            detailsEmailElement.setCustomValidity("This field is required.");
+
+            detailsEmailElement.reportValidity();
+          }
+        } else {
+          // Set a custom validity message
+          detailsEmailElement.setCustomValidity("Please enter a valid email.");
+
+          // Trigger validation to display the custom message
+          detailsEmailElement.reportValidity();
+        }
+        parentsFullNameElement.setCustomValidity("");
+        parentsFullName = parentsFullNameElement.value;
+        if (parentsFullNameElement.checkValidity()) {
+          if (parentsFullName.length === 1) {
+            parentsFullNameElement.setCustomValidity(
+              "Please enter a valid name."
+            );
+
+            parentsFullNameElement.reportValidity();
+          } else if (parentsFullName.length === 0) {
+            parentsFullNameElement.setCustomValidity("This field is required.");
+
+            parentsFullNameElement.reportValidity();
+          }
+        } else {
+          parentsFullNameElement.setCustomValidity("This field is required.");
+
+          parentsFullNameElement.reportValidity();
+        }
+
+        parentsEmailElement.setCustomValidity("");
+        parentsEmail = parentsEmailElement.value;
+        // Check the validity of the email input
+        if (parentsEmailElement.checkValidity()) {
+          if (parentsEmail.length === 1) {
+            parentsEmailElement.setCustomValidity("Please enter a valid name.");
+
+            parentsEmailElement.reportValidity();
+          } else if (parentsEmail.length === 0) {
+            parentsEmailElement.setCustomValidity("This field is required.");
+
+            parentsEmailElement.reportValidity();
+          }
+        } else {
+          // Set a custom validity message
+          parentsEmailElement.setCustomValidity("Please enter a valid email.");
+
+          // Trigger validation to display the custom message
+          parentsEmailElement.reportValidity();
+        }
       }
       function clearInvalidMessage() {
         firstNameElement.setCustomValidity("");
@@ -1433,6 +1538,10 @@
         ecElement3.setCustomValidity("");
         yourOpinionElement.setCustomValidity("");
         academyQuestionElement.setCustomValidity("");
+        parentsEmailElement.setCustomValidity("");
+        parentsFullNameElement.setCustomValidity("");
+        detailsEmailElement.setCustomValidity("");
+        fullNameElement.setCustomValidity("");
       }
 
       function updateTimer() {

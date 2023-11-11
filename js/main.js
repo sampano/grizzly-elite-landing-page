@@ -318,10 +318,10 @@ $(document).ready(function () {
         });
 
         // Change the background image path of .hero-container
-        $(".hero-container").css(
-          "background-image",
-          "url('./media/img/background_04.png')"
-        );
+        // $(".hero-container").css(
+        //   "background-image",
+        //   "url('./media/img/background_04.png')"
+        // );
         prevStep.addClass("active").removeClass("valid");
         return false;
       }

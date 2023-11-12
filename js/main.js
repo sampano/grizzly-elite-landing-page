@@ -139,85 +139,112 @@ $(document).ready(function () {
       const $this = $(this);
       const inputValue = $(this).val();
       const inputType = $(this).prop("type");
-      const inputID = $(this).prop("id");
+      const inputID = $(this).prop("id") || "";
       let inputName = $(this).prop("name");
       inputValues.push(inputValue);
-      console.log(inputName);
+
+      const showError = (errorMessage) => {
+        isAnyInputEmpty = true;
+        console.error(errorMessage);
+      };
 
       //console.log(getScales);
-      if (inputType === "text") {
-        console.log("input is text");
-        if (inputID === "birthDate") {
-          const today = new Date();
-          const birthDate = $("#birthDate").val();
-          const inputDate = new Date(birthDate);
-          const birthDateErrElement = $("#birthDateErr");
-          const gradYear = $("#gradYear").val();
-          if (birthDate !== "" && gradYear !== "") {
-            const ageDifference = today.getFullYear() - inputDate.getFullYear();
-            // Check if the input is a valid date
-            if (isNaN(inputDate.getTime())) {
-              isAnyInputEmpty = true;
-            } else if (inputDate > today) {
-              isAnyInputEmpty = true;
-            } else if (ageDifference < 5) {
-              // Check if the user is less than 12 years old
-              // birthDateErrElement.text("You are too young.");
-            } else if (isNaN(gradYear) || gradYear < new Date().getFullYear()) {
-              isAnyInputEmpty = true;
+      switch (inputType) {
+        case "text":
+          if (inputID === "birthDate") {
+            const today = new Date();
+            const birthDate = $("#birthDate").val();
+            const inputDate = new Date(birthDate);
+            const gradYear = $("#gradYear").val();
+
+            if (
+              (birthDate || gradYear) &&
+              !isNaN(inputDate.getTime()) &&
+              inputDate <= today &&
+              today.getFullYear() - inputDate.getFullYear() >= 5 &&
+              !isNaN(gradYear) &&
+              gradYear >= new Date().getFullYear()
+            ) {
+              // Valid input
+            } else {
+              showError("Invalid birthdate or graduation year.");
+              //isAnyInputEmpty = true;
+            }
+          } else if (
+            inputID === "questionEc1" ||
+            inputID === "questionEc2" ||
+            inputID === "questionEc3"
+          ) {
+            if (inputValue === "") {
+              showError(`The field "${inputID}" is required.`);
+              //isAnyInputEmpty = true;
             }
           } else {
-            isAnyInputEmpty = true;
-            // birthDateErrElement.text("This field is required.");
+            if (inputValue.length <= 1) {
+              showError(`Please enter a valid value for field "${inputID}".`);
+              //isAnyInputEmpty = true;
+            }
           }
-        } else {
-          if (inputValue.length <= 1) {
+          break;
+
+        case "email":
+          const emailPattern =
+            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+          if (!emailPattern.test(inputValue)) {
+            showError("Please enter a valid email.");
             isAnyInputEmpty = true;
-            //alert("Please enter a valid email.");
           }
-        }
-      } else if (inputType === "email") {
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!emailPattern.test(inputValue)) {
-          isAnyInputEmpty = true;
-          //$fieldError.text("Please enter a valid email.");
-        }
-      } else if (inputID === "questionEc1") {
-        const questionEc1 = $("#questionEc1").val();
-        //const questionEc1ErrElement = $("#questionEc1Err");
-        if (questionEc1 === "") {
-          isAnyInputEmpty = true;
-          questionEc1ErrElement.text("This field is required.");
-        }
-      } else if (inputID === "questionEc2") {
-        const questionEc2 = $("#questionEc2").val();
-        //const questionEc2ErrElement = $("#questionEc2Err");
-        if (questionEc2 === "") {
-          isAnyInputEmpty = true;
+          break;
 
-          questionEc2ErrElement.text("This field is required.");
-        }
-      } else if (inputID === "questionEc3") {
-        const questionEc3 = $("#questionEc3").val();
-        //const questionEc3ErrElement = $("#questionEc3Err");
-        if (questionEc3 === "") {
-          isAnyInputEmpty = true;
-        }
-      } else if (inputID === "fileUpload") {
-        const fileUpload = $("#fileUpload").val();
+        case "tel":
+          const phoneNumberPattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+          //const yPhoneNumber = $("#yPhoneNumber").val();
+          const yPhoneNumber = $("#yPhoneNumber").val();
+          if (yPhoneNumber === "") {
+            showError("Please enter a valid phone number.");
+            //isAnyInputEmpty = true;
+          } else if (!phoneNumberPattern.test(yPhoneNumber)) {
+            showError("Please enter a valid phone number.");
+          }
+          break;
 
-        if (fileUpload === "") {
-          isAnyInputEmpty = true;
-        } else if (!fileUploadValid) {
-          isAnyInputEmpty = true;
-        }
-      } else if ((inputName = "getScale")) {
-        //isAnyInputEmpty = false;
-        //console.log("oh yeah");
-      } else {
-        isAnyInputEmpty = true;
-        //alert("asdkhasdk");
-        return false;
+        case "file":
+          const fileUpload = $("#fileUpload").val();
+          if (fileUpload === "" || !fileUploadValid) {
+            showError("Please upload a valid file.");
+            //isAnyInputEmpty = true;
+          }
+          break;
+
+        case "radio":
+          const selectedScale = $('input[name="getScale"]:checked').val();
+          const selectedBrand = $('input[name="getBrand"]:checked').val();
+          const selectedInterview = $(
+            'input[name="getInterview"]:checked'
+          ).val();
+          const selectedPayment = $('input[name="getPayment"]:checked').val();
+
+          if (inputName === "getScale") {
+            if (!selectedScale) {
+              showError("Please select a scale.");
+            }
+          } else if (inputName === "getBrand") {
+            if (!selectedBrand) {
+              showError("Please select a brand.");
+            }
+          } else if (inputName === "getInterview") {
+            if (!selectedInterview) {
+              showError("Please select a Yes or No.");
+            }
+          } else if (inputName === "getPayment") {
+            if (!selectedPayment) {
+              showError("Please select a Yes or No.");
+            }
+          }
+          break;
+
+        default:
+          showError(`Invalid input type for field "${inputID}".`);
       }
     });
 
@@ -498,7 +525,7 @@ $(document).ready(function () {
             // Stop the timer when count exceeds 100
             clearInterval(timerInterval);
           }
-        }, 50);
+        }, 20);
       }
     }
   });

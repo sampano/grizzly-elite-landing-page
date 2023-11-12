@@ -542,7 +542,8 @@ $(document).ready(function () {
       // Update the real-time count element
       realTimeCountElement.textContent = `${count}%`;
       if (count === 100) {
-        window.location.href = "/landing.html";
+        window.location.href = "/grizzly-elite-landing-page/landing.html";
+        //window.location.href = "/landing.html";
       }
     } else {
       // Stop the timer when count exceeds 100

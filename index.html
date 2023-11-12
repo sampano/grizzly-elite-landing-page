@@ -107,6 +107,10 @@
                 </div>
                 <div class="step step-12">
                   <div class="opaque"></div>
+                  <div class="round-center"></div>
+                </div>
+                <div class="step step-13">
+                  <div class="opaque"></div>
                 </div>
               </div>
             </div>
@@ -169,23 +173,11 @@
                       name="firstName"
                       oninput="clearInvalidMessage()"
                     />
-                    <!-- <span
-                      class="field-error input-field-error"
-                      id="firstNameErr"
-                    ></span> -->
                   </div>
                   <div
                     class="container next-button-container text-align_center"
                     style="display: none"
                   >
-                    <!-- <a href="#" class="btn btn-next button_primary"
-                      >Next
-                      <img
-                        class="arrow-icon"
-                        src="./media/img/arrow_icon.png"
-                        alt=""
-                      />
-                    </a> -->
                     <button
                       type="button"
                       class="btn btn-next button_primary"
@@ -830,7 +822,7 @@
                     </div>
                     <div class="">
                       <input
-                        class="display_block hero-input mb-50 get-number_input get-input"
+                        class="display_block hero-input mb-50 get-number_input"
                         type="radio"
                         id="getNumber9"
                         name="getScale"
@@ -1009,10 +1001,10 @@
                         class="display_block hero-input mb-50 get-interview_input"
                         type="radio"
                         id="getInterviewYes"
-                        name="get-interview"
+                        name="getInterview"
                         checked
                       />
-                      <label for="getInterviewYes" class="get-interview_label"
+                      <label for="getInterview" class="get-interview_label"
                         ><div class="get-interview_img">
                           <img
                             src="./media/icons/bjorn_yes_icon.png"
@@ -1032,9 +1024,9 @@
                         class="display_block hero-input mb-50 get-interview_input"
                         type="radio"
                         id="getInterviewNo"
-                        name="get-interview"
+                        name="getInterview"
                       />
-                      <label for="getInterviewNo" class="get-interview_label"
+                      <label for="getInterview" class="get-interview_label"
                         ><div class="get-interview_img">
                           <img
                             src="./media/icons/jerry_no_icon.png"
@@ -1049,14 +1041,18 @@
                     class="container next-button-container text-align_center"
                     style="display: none"
                   >
-                    <a href="#" class="btn btn-next button_primary"
-                      >Next
+                    <button
+                      type="button"
+                      class="btn btn-next button_primary"
+                      onclick="formValidation()"
+                    >
+                      Next
                       <img
                         class="arrow-icon"
                         src="./media/img/arrow_icon.png"
                         alt=""
                       />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1078,10 +1074,10 @@
                   <div class="get-payment_container pb-50">
                     <div class="get-payment_radio-container text-align_center">
                       <input
-                        class="display_block hero-input mb-50 get-payment_input"
+                        class="display_block hero-input mb-50 get-payment_input get-input"
                         type="radio"
                         id="getPaymentYes"
-                        name="get-payment"
+                        name="getPayment"
                         checked
                       />
                       <label for="getPaymentYes" class="get-payment_label"
@@ -1099,10 +1095,10 @@
 
                     <div class="get-payment_radio-container text-align_center">
                       <input
-                        class="display_block hero-input mb-50 get-payment_input"
+                        class="display_block hero-input mb-50 get-payment_input get-input"
                         type="radio"
                         id="getPaymentNo"
-                        name="get-payment"
+                        name="getPayment"
                       />
                       <label for="getPaymentNo" class="get-payment_label"
                         ><div class="get-payment_img">
@@ -1119,21 +1115,25 @@
                     class="container next-button-container text-align_center"
                     style="display: none"
                   >
-                    <a href="#" class="btn btn-next button_primary"
-                      >Next
+                    <button
+                      type="button"
+                      class="btn btn-next button_primary"
+                      onclick="formValidation()"
+                    >
+                      Next
                       <img
                         class="arrow-icon"
                         src="./media/img/arrow_icon.png"
                         alt=""
                       />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
             <div
-              class="get-details section13"
+              class="get-details section13 m-pb-30"
               id="section13"
               style="display: none"
             >
@@ -1151,70 +1151,128 @@
                   </h4>
                   <div class="get-details_container">
                     <input
-                      class="display_block hero-input mb-20 get-details_input"
+                      class="display_block hero-input mb-20 get-details_input get-input"
                       type="text"
-                      placeholder="Full name"
-                      id="fullName"
-                      name="fullName"
+                      placeholder="Your first name"
+                      id="yFirstName"
+                      name="yFirstName"
                       oninput="clearInvalidMessage()"
                     />
-
                     <input
-                      class="display_block hero-input mb-20 get-details_input"
-                      type="email"
-                      placeholder="Email"
-                      id="detailsEmail"
-                      name="detailsEmail"
-                      oninput="clearInvalidMessage()"
-                      value=""
-                    />
-
-                    <input
-                      class="display_block hero-input mb-20 get-details_input"
+                      class="display_block hero-input mb-20 get-details_input get-input"
                       type="text"
-                      placeholder="Parents full name"
-                      id="parentsFullName"
-                      name="parentsFullName"
+                      placeholder="Your last name"
+                      id="yLastName"
+                      name="yLastName"
+                      oninput="clearInvalidMessage()"
+                    />
+                    <input
+                      class="display_block hero-input mb-20 get-details_input get-input"
+                      type="email"
+                      placeholder="Your email"
+                      id="yEmail"
+                      name="yEmail"
                       oninput="clearInvalidMessage()"
                     />
 
                     <input
-                      class="display_block hero-input mb-20 get-details_input"
-                      type="email"
-                      placeholder="Parents email"
-                      id="parentsEmail"
-                      name="parentsEmail"
+                      class="display_block hero-input mb-20 get-details_input get-input"
+                      type="tel"
+                      placeholder="Your phone number"
+                      id="yPhoneNumber"
+                      name="yPhoneNumber"
                       oninput="clearInvalidMessage()"
                     />
                   </div>
                   <div
                     class="container next-button-container text-align_center"
                     style="display: none"
-                  >
-                    <!-- <a href="#" class="btn btn-next button_primary"
-                      >Next
-                      <img
-                        class="arrow-icon"
-                        src="./media/img/arrow_icon.png"
-                        alt=""
-                      />
-                    </a> -->
-                  </div>
+                  ></div>
                 </div>
               </div>
+              <button
+                type="submit"
+                class="btn btn-next button_primary"
+                style="display: none"
+                onclick="formValidation()"
+              >
+                Next<img
+                  class="arrow-icon"
+                  src="./media/img/arrow_icon.png"
+                  alt=""
+                />
+              </button>
             </div>
-            <button
-              type="submit"
-              class="btn btn-submit button_primary"
+          </form>
+          <form id="grizzlyParentForm">
+            <div
+              class="get-details section14 m-pb-30"
+              id="section14"
               style="display: none"
-              onclick="formValidation()"
             >
-              Submit<img
-                class="arrow-icon"
-                src="./media/img/arrow_icon.png"
-                alt=""
-              />
-            </button>
+              <div class="container">
+                <div class="font-color_white text-align_center">
+                  <h1 class="pb-30 m-font-size_32px">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Laudantium, ipsam?
+                  </h1>
+                  <h4 class="font-weight_400 mb-20">
+                    Lorem ipsum dolor sit amet.
+                  </h4>
+                  <div class="get-details_container">
+                    <input
+                      class="display_block hero-input mb-20 get-details_input"
+                      type="text"
+                      placeholder="Parent first name"
+                      id="yParentFirstName"
+                      name="yParentFirstName"
+                      oninput="clearInvalidMessage()"
+                    />
+                    <input
+                      class="display_block hero-input mb-20 get-details_input"
+                      type="text"
+                      placeholder="Parent last name"
+                      id="yParentLastName"
+                      name="yParentLastName"
+                      oninput="clearInvalidMessage()"
+                    />
+                    <input
+                      class="display_block hero-input mb-20 get-details_input"
+                      type="email"
+                      placeholder="Parent email"
+                      id="yParentEmail"
+                      name="yParentEmail"
+                      oninput="clearInvalidMessage()"
+                    />
+
+                    <input
+                      class="display_block hero-input mb-20 get-details_input"
+                      type="tel"
+                      placeholder="Your phone number"
+                      id="yParentPhoneNumber"
+                      name="yParentPhoneNumber"
+                      oninput="clearInvalidMessage()"
+                    />
+                  </div>
+                  <div
+                    class="container next-button-container text-align_center"
+                    style="display: none"
+                  ></div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-submit button_primary"
+                style="display: none"
+                onclick="formValidation()"
+              >
+                Submit<img
+                  class="arrow-icon"
+                  src="./media/img/arrow_icon.png"
+                  alt=""
+                />
+              </button>
+            </div>
           </form>
           <div
             class="get-verification pt-150"
@@ -1226,7 +1284,10 @@
                 class="get-verification_container font-color_white text-align_center pl-100 pr-100 m-pl-0 m-pr-0"
               >
                 <div class="spin">
-                  <p class="font-size_32px font-weight_700">71%</p>
+                  <p
+                    class="font-size_32px font-weight_700"
+                    id="submissionPercent"
+                  ></p>
                 </div>
 
                 <h1
@@ -1270,12 +1331,30 @@
       const ecElement3 = document.getElementById("questionEc3");
       const yourOpinionElement = document.getElementById("yourOpinion");
       const academyQuestionElement = document.getElementById("academyQuestion");
-      const fullNameElement = document.getElementById("fullName");
-      const detailsEmailElement = document.getElementById("detailsEmail");
-      const parentsFullNameElement = document.getElementById("parentsFullName");
-      const parentsEmailElement = document.getElementById("parentsEmail");
+      const yFirstNameElement = document.getElementById("yFirstName");
+      const yLastNameElement = document.getElementById("yLastName");
+      const yEmailElement = document.getElementById("yEmail");
+      const yPhoneNumberElement = document.getElementById("yPhoneNumber");
+      const getScalesElement = document.getElementsByName("getScale");
+      const getInterviewElement = document.getElementsByName("getInterview");
+      const getBrandElement = document.getElementsByName("getBrand");
+      const getPaymentElement = document.getElementsByName("getPayment");
+      const fileUploadElement = document.getElementById("fileUpload");
+
+      //PARENT FORM
+
+      const yParentFirstNameElement =
+        document.getElementById("yParentFirstName");
+
+      const yParentLastNameElement = document.getElementById("yParentLastName");
+
+      const yParentPhoneNumberElement =
+        document.getElementById("yParentPhoneNumber");
+
+      const yParentEmailElement = document.getElementById("yParentEmail");
 
       function formValidation() {
+        const phoneNumberPattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
         let firstName = firstNameElement.value;
         firstNameElement.setCustomValidity("");
         console.log("formValidation");
@@ -1445,86 +1524,160 @@
           academyQuestionElement.reportValidity();
         }
 
-        fullName = fullNameElement.value;
-        fullNameElement.setCustomValidity("");
-        if (fullNameElement.checkValidity()) {
-          console.log("validity");
+        yFirstName = yFirstNameElement.value;
+        yFirstNameElement.setCustomValidity("");
+        if (yFirstNameElement.checkValidity()) {
+          //console.log("validity");
 
-          if (fullName.length === 1) {
-            fullNameElement.setCustomValidity("Please enter a valid name.");
+          if (yFirstName.length === 1) {
+            yFirstNameElement.setCustomValidity("Please enter a valid name.");
 
-            fullNameElement.reportValidity();
-          } else if (fullName.length === 0) {
-            fullNameElement.setCustomValidity("This field is required.");
+            yFirstNameElement.reportValidity();
+          } else if (yFirstName.length === 0) {
+            yFirstNameElement.setCustomValidity("This field is required.");
 
-            fullNameElement.reportValidity();
+            yFirstNameElement.reportValidity();
           }
         } else {
-          fullNameElement.setCustomValidity("This field is required.hahaha");
+          yFirstNameElement.setCustomValidity("This field is required.hahaha");
 
-          fullNameElement.reportValidity();
+          yFirstNameElement.reportValidity();
         }
 
-        detailsEmailElement.setCustomValidity("");
-        detailsEmail = detailsEmailElement.value;
-        if (detailsEmailElement.checkValidity()) {
-          if (detailsEmail.length === 1) {
-            fullNamdetailsEmailElementeElement.setCustomValidity(
-              "Please enter a valid name."
-            );
+        yLastNameElement.setCustomValidity("");
+        yLastName = yLastNameElement.value;
+        if (yLastNameElement.checkValidity()) {
+          if (yLastName.length === 1) {
+            yLastNameElement.setCustomValidity("Please enter a valid name.");
 
-            detailsEmailElement.reportValidity();
-          } else if (fullName.length === 0) {
-            detailsEmailElement.setCustomValidity("This field is required.");
+            yLastNameElement.reportValidity();
+          } else if (yLastName.length === 0) {
+            yLastNameElement.setCustomValidity("This field is required.");
 
-            detailsEmailElement.reportValidity();
+            yLastNameElement.reportValidity();
+          }
+        } else {
+          yLastNameElement.setCustomValidity("This field is required.");
+
+          yLastNameElement.reportValidity();
+        }
+
+        yEmailElement.setCustomValidity("");
+        yEmail = yEmailElement.value;
+        if (yEmailElement.checkValidity()) {
+          if (yEmail.length === 1) {
+            yEmailElement.setCustomValidity("Please enter a email.");
+
+            yEmailElement.reportValidity();
+          } else if (yEmail.length === 0) {
+            yEmailElement.setCustomValidity("This field is required.");
+
+            yEmailElement.reportValidity();
           }
         } else {
           // Set a custom validity message
-          detailsEmailElement.setCustomValidity("Please enter a valid email.");
+          yEmailElement.setCustomValidity("Please enter a valid email.");
 
           // Trigger validation to display the custom message
-          detailsEmailElement.reportValidity();
+          yEmailElement.reportValidity();
         }
-        parentsFullNameElement.setCustomValidity("");
-        parentsFullName = parentsFullNameElement.value;
-        if (parentsFullNameElement.checkValidity()) {
-          if (parentsFullName.length === 1) {
-            parentsFullNameElement.setCustomValidity(
+
+        // Clear previous custom validity
+        yPhoneNumberElement.setCustomValidity("");
+
+        // Get the phone number input value
+        const yPhoneNumber = yPhoneNumberElement.value;
+
+        // Check if the phone number is empty
+        if (yPhoneNumber.length === 0) {
+          yPhoneNumberElement.setCustomValidity("This field is required.");
+          yPhoneNumberElement.reportValidity();
+        } else if (!phoneNumberPattern.test(yPhoneNumber)) {
+          yPhoneNumberElement.setCustomValidity(
+            "Please enter a valid phone number."
+          );
+          yPhoneNumberElement.reportValidity();
+        }
+
+        yParentFirstNameElement.setCustomValidity("");
+        yParentFirst = yParentFirstNameElement.value;
+        if (yParentFirstNameElement.checkValidity()) {
+          if (yParentFirst.length === 1) {
+            yParentFirstNameElement.setCustomValidity(
               "Please enter a valid name."
             );
 
-            parentsFullNameElement.reportValidity();
-          } else if (parentsFullName.length === 0) {
-            parentsFullNameElement.setCustomValidity("This field is required.");
+            yParentFirstNameElement.reportValidity();
+          } else if (yParentFirst.length === 0) {
+            yParentFirstNameElement.setCustomValidity(
+              "This field is required."
+            );
 
-            parentsFullNameElement.reportValidity();
+            yParentFirstNameElement.reportValidity();
           }
         } else {
-          parentsFullNameElement.setCustomValidity("This field is required.");
+          yParentFirstNameElement.setCustomValidity("This field is required.");
 
-          parentsFullNameElement.reportValidity();
+          yParentFirstNameElement.reportValidity();
         }
 
-        parentsEmailElement.setCustomValidity("");
-        parentsEmail = parentsEmailElement.value;
-        // Check the validity of the email input
-        if (parentsEmailElement.checkValidity()) {
-          if (parentsEmail.length === 1) {
-            parentsEmailElement.setCustomValidity("Please enter a valid name.");
+        yParentLastNameElement.setCustomValidity("");
+        yParentLastName = yParentLastNameElement.value;
+        if (yParentLastNameElement.checkValidity()) {
+          if (yParentLastName.length === 1) {
+            yParentLastNameElement.setCustomValidity(
+              "Please enter a valid name."
+            );
 
-            parentsEmailElement.reportValidity();
-          } else if (parentsEmail.length === 0) {
-            parentsEmailElement.setCustomValidity("This field is required.");
+            yParentLastNameElement.reportValidity();
+          } else if (yParentLastName.length === 0) {
+            yParentLastNameElement.setCustomValidity("This field is required.");
 
-            parentsEmailElement.reportValidity();
+            yParentLastNameElement.reportValidity();
+          }
+        } else {
+          yParentLastNameElement.setCustomValidity("This field is required.");
+
+          yParentLastNameElement.reportValidity();
+        }
+
+        // Clear previous custom validity
+        yParentPhoneNumberElement.setCustomValidity("");
+
+        // Get the phone number input value
+        const yParentPhoneNumber = yParentPhoneNumberElement.value;
+
+        // Check if the phone number is empty
+        if (yParentPhoneNumber.length === 0) {
+          yParentPhoneNumberElement.setCustomValidity(
+            "This field is required."
+          );
+          yParentPhoneNumberElement.reportValidity();
+        } else if (!phoneNumberPattern.test(yParentPhoneNumber)) {
+          yParentPhoneNumberElement.setCustomValidity(
+            "Please enter a valid phone number."
+          );
+          yParentPhoneNumberElement.reportValidity();
+        }
+
+        yParentEmailElement.setCustomValidity("");
+        yParentEmail = yParentEmailElement.value;
+        if (yParentEmailElement.checkValidity()) {
+          if (yParentEmail.length === 1) {
+            yParentEmailElement.setCustomValidity("Please enter a email.");
+
+            yParentEmailElement.reportValidity();
+          } else if (yParentEmail.length === 0) {
+            yParentEmailElement.setCustomValidity("This field is required.");
+
+            yParentEmailElement.reportValidity();
           }
         } else {
           // Set a custom validity message
-          parentsEmailElement.setCustomValidity("Please enter a valid email.");
+          yParentEmailElement.setCustomValidity("Please enter a valid email.");
 
           // Trigger validation to display the custom message
-          parentsEmailElement.reportValidity();
+          yParentEmailElement.reportValidity();
         }
       }
       function clearInvalidMessage() {
@@ -1538,10 +1691,14 @@
         ecElement3.setCustomValidity("");
         yourOpinionElement.setCustomValidity("");
         academyQuestionElement.setCustomValidity("");
-        parentsEmailElement.setCustomValidity("");
-        parentsFullNameElement.setCustomValidity("");
-        detailsEmailElement.setCustomValidity("");
-        fullNameElement.setCustomValidity("");
+        yPhoneNumberElement.setCustomValidity("");
+        yLastNameElement.setCustomValidity("");
+        yEmailElement.setCustomValidity("");
+        yFirstNameElement.setCustomValidity("");
+        yParentEmailElement.setCustomValidity("");
+        yParentPhoneNumberElement.setCustomValidity("");
+        yParentLastNameElement.setCustomValidity("");
+        yParentFirstNameElement.setCustomValidity("");
       }
 
       function updateTimer() {

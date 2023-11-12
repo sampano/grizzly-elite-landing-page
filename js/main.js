@@ -516,8 +516,11 @@ $(document).ready(function () {
           });
         });
         // Start the countdown timer when the form is submitted
+        let timerInterval;
+
+        // Start the countdown timer when the form is submitted
         let count = 1;
-        const timerInterval = setInterval(() => {
+        timerInterval = setInterval(() => {
           countdown(count);
           count++;
 
@@ -538,9 +541,14 @@ $(document).ready(function () {
     if (count <= 100) {
       // Update the real-time count element
       realTimeCountElement.textContent = `${count}%`;
+      if (count === 100) {
+        window.location.href = "/landing.html";
+      }
     } else {
       // Stop the timer when count exceeds 100
+      //console.log("done");
       clearInterval(timerInterval);
+      //window.location.href = "/landing.html";
     }
   }
 

@@ -219,7 +219,9 @@
                     <button
                       type="button"
                       class="btn btn-next button_primary"
+                      disabled
                       onclick="formValidation()"
+                      id="btnFirstName"
                     >
                       Next
                       <div class="ico animated">
@@ -257,7 +259,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_firstName"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -289,10 +291,6 @@
                       name="eMail"
                       oninput="clearInvalidMessage()"
                     />
-                    <!-- <span
-                      class="field-error input-field-error"
-                      id="eMailErr"
-                    ></span> -->
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -302,6 +300,8 @@
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      id="btnEmail"
+                      disabled
                     >
                       Next
                       <div class="ico animated">
@@ -339,7 +339,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_email"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -379,7 +379,6 @@
                           name="birthDate"
                           oninput="clearInvalidMessage()"
                         />
-                        <!-- <span class="field-error" id="birthDateErr"></span> -->
                       </div>
                       <input
                         class="hero-select get-birthday_select get-input"
@@ -397,28 +396,18 @@
                         <option>2027</option>
                         <option>2028</option>
                       </datalist>
-                      <!-- <span
-                        class="field-error input-field-error"
-                        id="gradYearErr"
-                      ></span> -->
                     </div>
                   </div>
                   <div
                     class="container next-button-container text-align_center"
                     style="display: none"
                   >
-                    <!-- <a href="#" class="btn btn-next button_primary"
-                      >Next
-                      <img
-                        class="arrow-icon"
-                        src="./media/img/arrow_icon.png"
-                        alt=""
-                      />
-                    </a> -->
                     <button
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      id="btnBday"
+                      disabled
                     >
                       Next
                       <div class="ico animated">
@@ -456,7 +445,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_bday"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -496,6 +485,8 @@
                     type="button"
                     class="btn btn-next button_primary"
                     onclick="formValidation()"
+                    id="btnUni"
+                    disabled
                   >
                     Next
                     <div class="ico animated">
@@ -533,7 +524,7 @@
                         </defs>
                         <path
                           id="XMLID_27_"
-                          class="st-arrow"
+                          class="st-arrow st-arrow_uni"
                           d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                             s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                             c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -565,6 +556,7 @@
                           list="questionEc1List"
                           name="questionEc1List"
                           id="questionEc1"
+                          oninput="clearInvalidMessage()"
                         />
                         <datalist id="questionEc1List">
                           <option>
@@ -577,17 +569,6 @@
                             Founder and President of School Coding Club.
                           </option>
                         </datalist>
-                        <!-- <select
-                          class="hero-select get-ecs_select get-input mb-30"
-                          id="questionEc1"
-                          name="questionEc1"
-                        >
-                          <option value>1</option>
-                          <option value="2024">2024</option>
-                          <option value="2023">2023</option>
-                          <option value="2022">2022</option>
-                        </select>
-                        <span class="field-error" id="questionEc1Err"></span> -->
                       </div>
                       <div>
                         <input
@@ -597,6 +578,7 @@
                           list="questionEc2List"
                           name="questionEc2List"
                           id="questionEc2"
+                          oninput="clearInvalidMessage()"
                         />
                         <datalist id="questionEc2List">
                           <option>
@@ -609,16 +591,6 @@
                             Founder and President of School Coding Club.
                           </option>
                         </datalist>
-                        <!-- <select
-                          class="hero-select get-ecs_select get-input mb-30"
-                          id="questionEc2"
-                        >
-                          <option value>2</option>
-                          <option value="2024">2024</option>
-                          <option value="2023">2023</option>
-                          <option value="2022">2022</option>
-                        </select>
-                        <span class="field-error" id="questionEc2Err"></span> -->
                       </div>
                       <div>
                         <input
@@ -641,16 +613,6 @@
                             Founder and President of School Coding Club.
                           </option>
                         </datalist>
-                        <!-- <select
-                          class="hero-select get-ecs_select get-input"
-                          id="questionEc3"
-                        >
-                          <option value>3</option>
-                          <option value="2024">2024</option>
-                          <option value="2023">2023</option>
-                          <option value="2022">2022</option>
-                        </select>
-                        <span class="field-error" id="questionEc3Err"></span> -->
                       </div>
                     </div>
                   </div>
@@ -662,6 +624,8 @@
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      id="btnEcs"
+                      disabled
                     >
                       Next
                       <div class="ico animated">
@@ -699,7 +663,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_ecs"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -728,10 +692,6 @@
                       name="yourOpinion"
                       oninput="clearInvalidMessage()"
                     />
-                    <!-- <span
-                      class="field-error input-field-error"
-                      id="yourOpinionErr"
-                    ></span> -->
                   </div>
                   <div
                     class="container next-button-container text-align_center"
@@ -741,6 +701,7 @@
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      id="btnOpinion"
                     >
                       Next
                       <div class="ico animated">
@@ -778,7 +739,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_opinion"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -834,7 +795,6 @@
                         </div>
                       </div></label
                     >
-                    <!-- <span class="field-error" id="fileUploadErr"></span> -->
                     <div id="file-list"></div>
                   </div>
                   <div
@@ -845,6 +805,8 @@
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      id="btnUpload"
+                      disabled
                     >
                       Next
                       <div class="ico animated">
@@ -882,7 +844,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_upload"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -929,6 +891,8 @@
                       type="button"
                       class="btn btn-next button_primary"
                       onclick="formValidation()"
+                      disabled
+                      id="btnAcademy"
                     >
                       Next
                       <div class="ico animated">
@@ -966,7 +930,7 @@
                           </defs>
                           <path
                             id="XMLID_27_"
-                            class="st-arrow"
+                            class="st-arrow st-arrow_academy"
                             d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -1374,7 +1338,7 @@
                   class="font-color_white text-align_center pl-80 pr-80 m-pl-0 m-pr-0"
                 >
                   <h4 class="font-weight_400 mb-20">
-                    You’re almost there (two more questions to go!)
+                    You’re almost there (three more questions to go!)
                   </h4>
                   <h1 class="pb-30 pl-60 pr-60 m-pl-0 m-pr-0 m-font-size_32px">
                     Do you pinky promise that if you qualify for an interview,
@@ -1391,7 +1355,7 @@
                         name="getInterview"
                         checked
                       />
-                      <label for="getInterview" class="get-interview_label"
+                      <label for="getInterviewYes" class="get-interview_label"
                         ><div class="get-interview_img">
                           <img
                             src="./media/icons/bjorn_yes_icon.png"
@@ -1413,7 +1377,9 @@
                         id="getInterviewNo"
                         name="getInterview"
                       />
-                      <label for="getInterview" class="get-interview_label"
+                      <label
+                        for="getInterviewNo"
+                        class="get-interview_label get-interview_no"
                         ><div class="get-interview_img">
                           <img
                             src="./media/icons/jerry_no_icon.png"
@@ -1524,7 +1490,9 @@
                         id="getPaymentNo"
                         name="getPayment"
                       />
-                      <label for="getPaymentNo" class="get-payment_label"
+                      <label
+                        for="getPaymentNo"
+                        class="get-payment_label get-payment_no"
                         ><div class="get-payment_img">
                           <img
                             src="./media/icons/jerry_no_icon.png"
@@ -1656,6 +1624,7 @@
                 class="btn btn-next button_primary"
                 style="display: none"
                 onclick="formValidation()"
+                id="btnUserDetails"
               >
                 Next
                 <div class="ico animated">
@@ -1764,6 +1733,8 @@
                 class="btn btn-submit button_primary"
                 style="display: none"
                 onclick="formValidation()"
+                id="parentDetails"
+                disabled
               >
                 Submit
                 <div class="ico animated">
@@ -1801,7 +1772,7 @@
                     </defs>
                     <path
                       id="XMLID_27_"
-                      class="st-arrow"
+                      class="st-arrow st-arrow_parent-details"
                       d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
                         s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
                         c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"
@@ -1877,9 +1848,6 @@
       const getBrandElement = document.getElementsByName("getBrand");
       const getPaymentElement = document.getElementsByName("getPayment");
       const fileUploadElement = document.getElementById("fileUpload");
-
-      //PARENT FORM
-
       const yParentFirstNameElement =
         document.getElementById("yParentFirstName");
 
@@ -1889,12 +1857,119 @@
         document.getElementById("yParentPhoneNumber");
 
       const yParentEmailElement = document.getElementById("yParentEmail");
+      const stArrowsFirstName =
+        document.getElementsByClassName("st-arrow_firstName");
+      const btnFirstName = document.getElementById("btnFirstName");
+
+      const btnEmail = document.getElementById("btnEmail");
+      const stArrowsEmail = document.getElementsByClassName("st-arrow_email");
+
+      const btnBday = document.getElementById("btnBday");
+      const stArrowsBday = document.getElementsByClassName("st-arrow_bday");
+
+      const btnUni = document.getElementById("btnUni");
+      const stArrowsUni = document.getElementsByClassName("st-arrow_uni");
+
+      const btnEcs = document.getElementById("btnEcs");
+      const stArrowsEcs = document.getElementsByClassName("st-arrow_ecs");
+
+      const btnOpinion = document.getElementById("btnOpinion");
+      const stArrowsOpinion =
+        document.getElementsByClassName("st-arrow_opinion");
+
+      const btnUpload = document.getElementById("btnUpload");
+      const stArrowsUpload = document.getElementsByClassName("st-arrow_upload");
+
+      const btnAcademy = document.getElementById("btnAcademy");
+      const stArrowsAcademy =
+        document.getElementsByClassName("st-arrow_academy");
+
+      const btnParent = document.getElementById("parentDetails");
+      const stArrowsParent = document.getElementsByClassName(
+        "st-arrow_parent-details"
+      );
+
+      //ENABLE BUTTON
+      function enableButton(elementId, stArrows, buttonId, fillCondition) {
+        const button = document.getElementById(buttonId);
+        const fillValue = fillCondition ? "#fff" : "#737373";
+
+        button.disabled = !fillCondition;
+
+        for (let i = 0; i < stArrows.length; i++) {
+          stArrows[i].style.fill = fillValue;
+        }
+      }
+
+      function checkAndEnableButtons() {
+        enableButton(
+          "firstName",
+          stArrowsFirstName,
+          "btnFirstName",
+          firstNameElement.value.length !== 0
+        );
+        enableButton(
+          "email",
+          stArrowsEmail,
+          "btnEmail",
+          emailElement.value.length !== 0
+        );
+        enableButton(
+          "bday",
+          stArrowsBday,
+          "btnBday",
+          birthDateElement.value.length !== 0 ||
+            gradYearElement.value.length !== 0
+        );
+        enableButton(
+          "uni",
+          stArrowsUni,
+          "btnUni",
+          dreamUniElement.value.length !== 0
+        );
+        enableButton(
+          "ecs",
+          stArrowsEcs,
+          "btnEcs",
+          ecElement1.value.length !== 0 ||
+            ecElement2.value.length !== 0 ||
+            ecElement3.value.length !== 0
+        );
+        enableButton(
+          "opinion",
+          stArrowsOpinion,
+          "btnOpinion",
+          yourOpinionElement.value.length !== 0
+        );
+        enableButton(
+          "upload",
+          stArrowsUpload,
+          "btnUpload",
+          fileUploadElement.value.length !== 0
+        );
+        enableButton(
+          "academy",
+          stArrowsAcademy,
+          "btnAcademy",
+          academyQuestionElement.value.length !== 0
+        );
+        enableButton(
+          "parent",
+          stArrowsParent,
+          "parentDetails",
+          yParentFirstNameElement.value.length !== 0 ||
+            yParentLastNameElement.value.length !== 0 ||
+            yParentPhoneNumberElement.value.length !== 0 ||
+            yParentEmailElement.value.length !== 0
+        );
+      }
+
+      //PARENT FORM
 
       function formValidation() {
         const phoneNumberPattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
         let firstName = firstNameElement.value;
         firstNameElement.setCustomValidity("");
-        console.log("formValidation");
         if (firstNameElement.checkValidity()) {
           // Move to the next step or perform other actions
 
@@ -2218,6 +2293,7 @@
         }
       }
       function clearInvalidMessage() {
+        checkAndEnableButtons();
         firstNameElement.setCustomValidity("");
         emailElement.setCustomValidity("");
         birthDateElement.setCustomValidity("");

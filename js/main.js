@@ -2,7 +2,7 @@ $(document).ready(function () {
   // GET STARTED BUTTON STARTS
   $("#get-started").click(function () {
     $(".step-0").addClass("valid");
-    $(".btn-next").prop("disabled", false);
+    //$(".btn-next").prop("disabled", false);
     // Fade out the "nav-logo" first
     $(".nav-logo").fadeOut(400, function () {
       $(".nav-logo").css({
@@ -188,8 +188,7 @@ $(document).ready(function () {
           break;
 
         case "email":
-          const emailPattern =
-            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+          const emailPattern = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{1,}$/;
           if (!emailPattern.test(inputValue)) {
             showError("Please enter a valid email.");
             isAnyInputEmpty = true;
@@ -197,7 +196,8 @@ $(document).ready(function () {
           break;
 
         case "tel":
-          const phoneNumberPattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+          const phoneNumberPattern =
+            /^(\([0-9]{3}\)|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$/;
           //const yPhoneNumber = $("#yPhoneNumber").val();
           const yPhoneNumber = $("#yPhoneNumber").val();
           if (yPhoneNumber === "") {

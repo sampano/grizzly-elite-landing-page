@@ -19,6 +19,7 @@
   margin: 0 auto;
   transition: 0.5s;
   overflow: hidden;
+  transition: all ease 0.3s;
 }
 
 .button_primary::before {
@@ -102,4 +103,10 @@
     #f36c1e,
     #f47b20
   );
+}
+
+.button_primary:disabled {
+  background-color: #c7c7c7; /* Light gray */
+  color: #737373; /* Dark gray */
+  cursor: not-allowed;
 }

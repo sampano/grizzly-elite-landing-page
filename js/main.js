@@ -19,6 +19,11 @@ $(document).ready(function () {
     $(".next-button-container").fadeIn(400);
   });
 
+  $(".btn-schedule").click(function () {
+    $("#grizzlyForm").fadeOut(400, function () {
+      $(".get-schedule").fadeIn(400);
+    });
+  });
   // GET STARTED BUTTON ENDS
 
   // FILE UPLOAD STARTS
@@ -199,11 +204,11 @@ $(document).ready(function () {
           const phoneNumberPattern =
             /^(\([0-9]{3}\)|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$/;
           //const yPhoneNumber = $("#yPhoneNumber").val();
-          const yPhoneNumber = $("#yPhoneNumber").val();
-          if (yPhoneNumber === "") {
+          const yParentPhoneNumber = $("#yParentPhoneNumber").val();
+          if (yParentPhoneNumber === "") {
             showError("Please enter a valid phone number.");
             //isAnyInputEmpty = true;
-          } else if (!phoneNumberPattern.test(yPhoneNumber)) {
+          } else if (!phoneNumberPattern.test(yParentPhoneNumber)) {
             showError("Please enter a valid phone number.");
           }
           break;
@@ -535,6 +540,47 @@ $(document).ready(function () {
   // BUTTON GRIZZLY PARENT FORM ENDS
 
   // TIMER PERCENTAGE STARTS
+
+  $(".btn-please").click(function () {
+    $(".get-billing").fadeOut(400);
+    $(".modal").fadeOut(400);
+    $(".overlay").fadeOut(400);
+    $(".get-verification").fadeIn(800);
+    let timerInterval;
+
+    // Start the countdown timer when the form is submitted
+    let count = 1;
+    timerInterval = setInterval(() => {
+      countdown(count);
+      count++;
+
+      if (count > 100) {
+        // Stop the timer when count exceeds 100
+        clearInterval(timerInterval);
+      }
+    }, 20);
+  });
+
+  $(".btn-close").click(function () {
+    $(".get-billing").fadeOut(400);
+    $(".modal").fadeOut(400);
+    $(".overlay").fadeOut(400);
+    $(".get-verification").fadeIn(800);
+    let timerInterval;
+
+    // Start the countdown timer when the form is submitted
+    let count = 1;
+    timerInterval = setInterval(() => {
+      countdown(count);
+      count++;
+
+      if (count > 100) {
+        // Stop the timer when count exceeds 100
+        clearInterval(timerInterval);
+      }
+    }, 20);
+  });
+
   function countdown(count) {
     const realTimeCountElement = document.getElementById("submissionPercent");
 
@@ -542,7 +588,7 @@ $(document).ready(function () {
       // Update the real-time count element
       realTimeCountElement.textContent = `${count}%`;
       if (count === 100) {
-        window.location.href = "/grizzly-elite-landing-page/landing.html";
+        window.location.href = "/grizzly-elite-payment-page/landing.html";
         //window.location.href = "/landing.html";
       }
     } else {

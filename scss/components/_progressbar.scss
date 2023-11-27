@@ -39,65 +39,65 @@
   z-index: 2;
 }
 #checkout-progress.step-2:after {
-  -webkit-transform: scaleX(0.08) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.08) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.243) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.243) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-3:after {
-  -webkit-transform: scaleX(0.173) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.173) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.492) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.492) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-4:after {
-  -webkit-transform: scaleX(0.265) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.265) translateY(-50%) perspective(1000px);
+  -webkit-transform: scaleX(0.743) translateY(-50%) perspective(1000px);
+  transform: scaleX(0.743) translateY(-50%) perspective(1000px);
 }
 #checkout-progress.step-5:after {
-  -webkit-transform: scaleX(0.355) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.355) translateY(-50%) perspective(1000px);
-}
-#checkout-progress.step-6:after {
-  -webkit-transform: scaleX(0.445) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.445) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-7:after {
-  -webkit-transform: scaleX(0.535) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.535) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-8:after {
-  -webkit-transform: scaleX(0.625) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.625) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-9:after {
-  -webkit-transform: scaleX(0.717) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.717) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-10:after {
-  -webkit-transform: scaleX(0.81) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.81) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-11:after {
-  -webkit-transform: scaleX(0.899) translateY(-50%) perspective(1000px);
-  transform: scaleX(0.899) translateY(-50%) perspective(1000px);
-}
-
-#checkout-progress.step-12:after {
   -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
   transform: scaleX(1) translateY(-50%) perspective(1000px);
 }
+// #checkout-progress.step-6:after {
+//   -webkit-transform: scaleX(0.445) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.445) translateY(-50%) perspective(1000px);
+// }
 
-#checkout-progress.step-13:after {
-  -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
-  transform: scaleX(1) translateY(-50%) perspective(1000px);
-}
+// #checkout-progress.step-7:after {
+//   -webkit-transform: scaleX(0.535) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.535) translateY(-50%) perspective(1000px);
+// }
 
-#checkout-progress.step-14:after {
-  -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
-  transform: scaleX(1) translateY(-50%) perspective(1000px);
-}
+// #checkout-progress.step-8:after {
+//   -webkit-transform: scaleX(0.625) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.625) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-9:after {
+//   -webkit-transform: scaleX(0.717) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.717) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-10:after {
+//   -webkit-transform: scaleX(0.81) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.81) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-11:after {
+//   -webkit-transform: scaleX(0.899) translateY(-50%) perspective(1000px);
+//   transform: scaleX(0.899) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-12:after {
+//   -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
+//   transform: scaleX(1) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-13:after {
+//   -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
+//   transform: scaleX(1) translateY(-50%) perspective(1000px);
+// }
+
+// #checkout-progress.step-14:after {
+//   -webkit-transform: scaleX(1) translateY(-50%) perspective(1000px);
+//   transform: scaleX(1) translateY(-50%) perspective(1000px);
+// }
 #checkout-progress .progress-bar {
   width: 100%;
   display: flex;

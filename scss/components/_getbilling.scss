@@ -1,0 +1,19 @@
+.get-billing {
+  .get-billing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  div#address-element {
+    padding: 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  div#payment-element {
+    padding: 20px;
+  }
+  .submit-payment-container {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
